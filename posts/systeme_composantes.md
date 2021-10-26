@@ -39,7 +39,7 @@ de dépendance.
   * A est une composante généraliste: elle fournit une interface générale
   * C est une composante spécialiste: elle fournit une interface spéciale
 
-![Arbre simple](../pics/systeme_composantes.png)
+![Arbre simple](./pics/systeme_composantes.png)
 
 On trouverait aussi un cas différent: lorsqu'un arbre n'est composé que d'un seul
 noeud. Dans ce cas-ci, le seul noeud présent ne serait ni généraliste, ni spécialiste,
