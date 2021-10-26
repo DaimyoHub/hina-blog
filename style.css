@@ -9,6 +9,9 @@ body {
   padding: 0 10px;
   -ms-overflox-style: none;
   scrollbar-width: none;
+}
+
+* {
   text-align: justify;
 }
 
