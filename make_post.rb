@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'fileutils'
-require 'org-ruby'
+require 'commonmarker'
 
 def make_post_path(title)
   "posts/#{title.gsub(' ', '_').downcase}"
@@ -8,8 +8,8 @@ end
 
 def compile_post(title)
   fname = make_post_path(title)
-  raw = File.open("#{fname}.org", "r") { |f| f.read }
-  body = Orgmode::Parser.new(raw).to_html
+  raw = File.open("#{fname}.md", "r") { |f| f.read }
+  body = CommonMarker.render_doc(raw).to_html
   File.open("#{fname}.html", "w") { |f|
     f.write "<!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@ def compile_post(title)
       <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\"/>
   </head>
   <body>
-    <img src=\"../jup_ant_wat.png\" alt=\"Jupyter et Antiope, Watteau.\"/>
+    <img src=\"../pics/jup_ant_wat.png\" alt=\"Jupyter et Antiope, Watteau.\"/>
     
     <h1>Hina, selon moi.</h1>
     

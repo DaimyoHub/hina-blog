@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset=utf8 />
+      <meta name=viewport content="width=device-width, initial-scale=1.0" />
+      <title>systeme_composantes</title>
+      <link rel="stylesheet" type="text/css" href="../style.css"/>
+  </head>
+  <body>
+    <img src="../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
+    
+    <h1>Hina, selon moi.</h1>
+    
+    <p>Quelques idées à propos d'Hina, mon infrastructure de compilation expérimentale.</p>
+    
+    <br/>
+    
+    <a href="../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../contact.html">Me contacter</a>
+    
+    <hr/>
+    
+    <h1>Un système constitué d'un ensemble de composantes</h1>
+<h2><em>Sommaire</em></h2>
+<ul>
+<li>Qu'est-ce qu'une composante ?</li>
+<li>Pourquoi ce modèle plutôt qu'un autre ?</li>
+<li>Quels sont les avantages du modèle ?</li>
+<li>Quels sont les inconvénients du modèle ?</li>
+<li>Comment gérer les composantes ?</li>
+</ul>
+<h2>Qu'est-ce qu'une composante ?</h2>
+<p>Posons les bases, éclaircissons les termes qui parraissent flous. Hina est une
+<strong>infrastructure</strong>, c'est à dire qu'elle regroupe un <strong>ensemble d'outils</strong> liés aux
+domaines de l'informatique mis en jeu dans les infrastructures de compilation et
+les machines virtuelles.</p>
+<p>Étant donc développée sous la forme d'une infrastructure, il semble cohérent de
+construire chacun des <strong>outils qui la composent de façon indépendante</strong>. Et c'est ici
+que la notion de <em>composante</em> intervient:</p>
+<p>Pour synthétiser le concept, je dirais qu'une composante est <strong>un service précis
+qui répond à un et un seul besoin précis</strong>, en fournissant une interface qui expose
+une API minimaliste. Mais ça n'est pas tout. En effet, exposer ma conception
+d'une composante est une maigre affaire, mais elle se complexifie lorsque
+de dois aborder la thématique de <strong>dépendance à d'autres composantes</strong> et l'<strong>organisation</strong>
+de celles-ci dans une architecture bien définie. Pour expliquer en quoi cette
+thématique conciste, je vous fournis cette liste simplifiée. Je suis convaincu
+qu'elle suffira à ce que vous compreniez l'essentiel de l'organisation de mon
+infrastructure.</p>
+<p>On peut imaginer les <strong>relations entre composantes</strong> comme un <strong>arbre</strong>.
+Les <strong>noeuds</strong> sont des composantes, les <strong>liens</strong> entre deux noeuds sont des relations
+de dépendance.</p>
+<ul>
+<li>Soient A, B et C, trois noeuds respectivement liés:
+<ul>
+<li>A ne dépend de rien</li>
+<li>B dépend de A</li>
+<li>C dépend de B qui dépend de A. Relation de Chasles: C dépend aussi de A</li>
+<li>A est une composante généraliste: elle fournit une interface générale</li>
+<li>C est une composante spécialiste: elle fournit une interface spéciale</li>
+</ul>
+</li>
+</ul>
+<p><img src="../pics/systeme_composantes.png" alt="Arbre simple" /></p>
+<p>On trouverait aussi un cas différent: lorsqu'un arbre n'est composé que d'un seul
+noeud. Dans ce cas-ci, le seul noeud présent ne serait ni généraliste, ni spécialiste,
+ni dépendant. C'est une simple composante.</p>
+<h2>Pourquoi ce modèle plutôt qu'un autre ?</h2>
+<blockquote>
+<p><em>Dernière modification le 26 octobre 2021.</em></p>
+</blockquote>
+
+    </body>
+
+    <br>
+    <footer>
+        <hr/>
+    
+        <a href="../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+        <a href="../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../contact.html">Me contacter</a>
+
+        <br/><br/>
+
+        <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
+        </a>
+
+        <br/>
+
+        Copyright (c) 2021 Daimyo. Ce blog est sous license <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    </footer>
+</html>
