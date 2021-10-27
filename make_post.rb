@@ -9,7 +9,7 @@ end
 def compile_post(title)
   fname = make_post_path(title)
   raw = File.open("#{fname}.md", "r") { |f| f.read }
-  body = CommonMarker.render_doc(raw).to_html
+  body = CommonMarker.render_html(raw, [:UNSAFE])
   File.open("#{fname}.html", "w") { |f|
     f.write "<!DOCTYPE html>
 <html>
