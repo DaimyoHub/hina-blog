@@ -26,6 +26,17 @@ img {
   text-align: center;
 }
 
+code {
+	border-top: 1px solid #5a403e;
+	border-bottom: 1px solid #5a403e;
+	background-color: #eee;
+	color: #444;
+	font-family: monospace;
+	font-size: 12px;
+	line-height: 1.1;
+	padding: 7px;
+}
+
 .language-cpp {
 	border-top: 1px solid #5a403e;
 	border-bottom: 1px solid #5a403e;

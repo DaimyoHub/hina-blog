@@ -109,17 +109,48 @@ comp/
 └── xmake.lua
 ```
 
-| noeud                   | utilité                                                                  |
-|:------------------------|:-------------------------------------------------------------------------|
-| **`docs`**              | Les documents liés à l'architecture et le développement de la composante |
-| **`examples`**          | Divers exemples d'utilisation de l'API                                   |
-| **`include/comp`**      | Les fichiers en-tête de l'API                                            |
-| **`include/detail`**    | Les fichiers en-tête des détails d'implémentation de l'API               |
-| **`src`**               | Les fichiers source de l'API                                             |
-| **`LICENCE`**           | Les termes de la licence de la composante                                |
-| **`README.md`**         | La description générale de la composante                                 |
-| **`xmake.lua`**         | Le fichier de configuration pour la construction de la composante        |
-| **`docs/follow_up.md`** | Le fichier de suivi du développement de la composante (cf. en bas)       |
+<table>
+  <tr>
+    <th>dossier/fichier</th>
+    <th>utilité</th>
+  </tr>
+  <tr>
+    <td><strong><code>docs</code></strong></td>
+    <td>Les documents liés à l'architecture et le développement de la composante</td>
+  </tr>
+  <tr>
+    <td><strong><code>examples</code></strong></td>
+    <td>Divers exemples d'utilisation de l'API</td>
+  </tr>
+  <tr>
+    <td><strong><code>include/comp</code></strong></td>
+    <td>Les fichiers en-tête de l'API</td>
+  </tr>
+  <tr>
+    <td><strong><code>include/detail</code></strong></td>
+    <td>Les fichiers en-tête des détails d'implémentation de l'API</td>
+  </tr>
+  <tr>
+    <td><strong><code>src</code></strong></td>
+    <td>Les fichiers source de l'API</td>
+  </tr>
+  <tr>
+    <td><strong><code>LICENCE</code></strong></td>
+    <td>Les termes de la licence de la composante</td>
+  </tr>
+  <tr>
+    <td><strong><code>README.md</code></strong></td>
+    <td>La description générale de la composante</td>
+  </tr>
+  <tr>
+    <td><strong><code>xmake.lua</code></strong></td>
+    <td>Le fichier de configuration pour la construction de la composante</td>
+  </tr>
+  <tr>
+    <td><strong><code>docs/follow_up.md</code></strong></td>
+    <td>Le fichier de suivi du développement de la composante (cf. en bas)</td>
+  </tr>
+</table>
 
 Le fichier `docs/follow_up.md` contient le suivi de développement de la composante.
 * Ce suivi est défini par
