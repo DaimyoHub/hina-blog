@@ -3,12 +3,13 @@
 ## Parcours citoyen
   * 2020 - 2021
     * Actif dans l'association Les restos du Coeur de Courrières
-    * Membre du conseil d'administration du lycée Pasteur à Hénin-Beaumont
     * Abtention du code de la route et droit de conduire accompagné
   * 2019 - 2021
-    * Member du Conseil de Vie Lycéenne du lycée Pasteur à Hénin-Beaumont
+    * En classe de seconde et de première, member du Conseil de Vie Lycéenne du lycée Pasteur à Hénin-Beaumont
+    * En classe de seconde et de première, membre du Conseil d'Administration du lycée Pasteur à Hénin-Beaumont
   * 2021 - 2022:
-    * Président de la Maison des Lycéens du lycée Pasteur à Hénin-Beaumont
+    * En classe de terminale, président de la Maison des Lycéens du lycée Pasteur à Hénin-Beaumont
+    * En classe de terminale, actif de la Maison des Lycéens du lycée Pasteur à Hénin-Beaumont
 
 ## Parcours sportif
 
@@ -27,7 +28,7 @@ la pratique de katas.
   * 2014 - 2017
     * Participation récurrente aux championnats régionaux de Yoseikan Budo (deux fois 2ème et deux fois 1er)
   * avril 2018
-    * Partifcipation aux championnats de France de Yoseikan Budo (première place)
+    * Participation aux championnats de France de Yoseikan Budo (première place)
   * mars 2019
     * Passage et obtention de la ceinture noire de Yoseikan Budo
   * 2019 - 2020
@@ -35,7 +36,7 @@ la pratique de katas.
 
 ## Parcours scolaire
   * 2018
-    * Participation au concours PEI Science-Po (2ème place sur l'ensemble des établissements de la région)
-    * Obtention du Brevet des collèges avec mention TB et mention Européenne (726 points sur 800) 
-    * Stage de découverte du monde professionnel dans l'entreprise Ceetrus (avec 100 points sur 100 à l'épreuve
+    * En classe de troisième, participation au concours PEI Science-Po (2ème place sur l'ensemble des établissements de la région)
+    * Obtention du brevet des collèges avec mention TB et mention Européenne (726 points sur 800) 
+    * En classe de troisième, stage de découverte du monde professionnel dans l'entreprise Ceetrus (avec 100 points sur 100 à l'épreuve
     orale)
