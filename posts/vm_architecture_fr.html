@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset=utf8 />
+      <meta name=viewport content="width=device-width, initial-scale=1.0" />
+      <title>vm_architecture_fr</title>
+      <link rel="stylesheet" type="text/css" href="../style.css"/>
+  </head>
+  <body>
+    <img src="../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>    
+
+    <h1>Hina, selon moi.</h1>
+    
+    <p>Quelques idées à propos d'Hina, mon infrastructure de compilation expérimentale.</p>
+    
+    <br/>
+    
+    <a href="../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../contact.html">Me contacter</a>
+    
+    <hr/>
+    
+    <h2>Gestion mémoire</h2>
+<h3>La page</h3>
+<p>L'utilisateur travaille sur une page mémoire, cela implique le fait que le seul
+lien qu'il partage directement avec le système de gestion de mémoire est l'interface
+d'une page. Une page est une partie allouée de mémoire concrètement définie
+par le périphérique mémoire, dédiée à un processus.</p>
+<h3>Le périphérique mémoire</h3>
+<p>Le périphérique mémoire forme la base du système de gestion mémoire. Il peut être
+vu comme un simple composant qui représenterait la mémoire de travail (cf. architecture
+de Von Neumann), qui n'a pas d'utilité abstraite. Ce périphérique doit, de la même
+façon que tout les autres périphériques, respecter la spécification de l'ID
+d'un périphérique. Il est lié à un allocateur.</p>
+<h3>L'allocateur</h3>
+<p>Pour lier le noyau du système au système de gestion mémoire, il faut utiliser
+l'allocateur. Le nom donné à ce composant n'est pas assez explicite: l'allocateur
+en lui même ne se charge pas d'allouer de la mémoire dans le périphérique, mais
+il permet de communiquer avec le noyau pour gérer toute requête qu'on lui confie.
+Par exemple, si un utilisateur a besoin de plus de mémoire pour le bon fonctionnement
+de son processus, le besoin est envoyé au périphérique, qui le relaiera à l'allocateur.
+Celui-ci se charge de récupérer toutes les informations lui permettant de
+composer une requête complète (ID du périphérique, nature de la requête, besoin,
+etc.), et il l'envoie à la section de gestion des requêtes située dans le noyau.</p>
+<p>Voici, ci-dessous, un schéma qui permet de représenter ce processus du transfer
+d'une requête:</p>
+<ul>
+<li>Si l'utilisateur doit effectuer une action liée à la gestion mémoire
+<ul>
+<li>Il appelle une API système:
+<ul>
+<li>Cet appel sera transmis au périphérique mémoire</li>
+<li>Le périphérique mémoire relaie le besoin à l'allocateur</li>
+<li>L'allocateur formule puis envoie la requête au centre de gestion des
+requêtes.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Interface et gestionnaire du noyau</h2>
+<h3>Le gestionnaire de requêtes</h3>
+<p>Cette composante permet à tous les périphériques de communiquer avec le noyau.
+Cela veut dire que chaque action effectuée par le machine passe forcément par ce
+gestionnaire, sans exception. Pour effectuer une requête, un composant doit
+respecter la spécification du format d'une requête. La requête sera en premier
+temps stockée dans une file, puis elle sera gérée tel que voulu par les développeurs
+du pilote. Un résultat sera renvoyé à l'envoyeur de la requête, il contiendra
+l'essentiel des informations utiles à propos du traitement de la requête.</p>
+<h3>L'interface d'un périphérique</h3>
+<p>Tous les périphérique de cette machine sont basés sur cette interface. Ils ont
+donc tous une chose en commun, un ID défini tel qu'il contient:</p>
+<ul>
+<li>Une <em>classe de périphérique</em>, par exemple, un périphérique mémoire est
+associé à la class <code>vm::DeviceKind::MEMORY</code>.</li>
+<li>Un identifiant numérique unique pour identifier chaque périphérique d'une
+classe donnée. (note: cet identifiant est défini sur [1;16])</li>
+</ul>
+
+    </body>
+
+    <br>
+    <footer>
+        <hr/>
+    
+        <a href="../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+        <a href="../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../contact.html">Me contacter</a>
+
+        <br/><br/>
+
+        <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
+            <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
+        </a>
+
+        <br/>
+
+        Copyright (c) 2021 Daimyo. Ce blog est sous license <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    </footer>
+</html>
