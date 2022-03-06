@@ -22,7 +22,7 @@ def compile_post(title)
   <body>
     <img src=\"../pics/jup_ant_wat.png\" alt=\"Jupyter et Antiope, Watteau.\"/>    
 
-    <h1>Hina, selon moi.</h1>
+    <h1>Hina</h1>
     
     <p>Quelques idées à propos d'Hina, mon infrastructure de compilation expérimentale.</p>
     
