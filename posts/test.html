@@ -19,7 +19,7 @@
     <img src="../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
 
     <h1>Hina</h1>
-    <p>Mathématiques et informatique.</p>
+    <p>La prépa scientifique, l'informatique et les mathématiques.</p>
 
     <br/>
 
@@ -28,6 +28,7 @@
     <a href="../contact.html">Me contacter</a>
 
     <hr/>
+    <br/>
 
     $\textbf{Formule de Taylor :}$ Soit $f$ une fonction à valeurs réelles
     définie sur $[a, b]$, admettant une dérivée d'ordre $n - 1$ ($n \ge 1$)
@@ -36,12 +37,12 @@
     $\beta$ de $[a, b]$, on pose
 
     $$\begin{equation}
-    P(t) = \sum{k=0}^{n - 1} \frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k
+    P(t) = \sum_{k=0}^{n - 1} \frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k
     \end{equation}$$
 
     il existe un point $x$ compris entre $\alpha$ et $\beta$ vérifiant
 
-    $$\begin{equation}\label{eq:heh}
+    $$\begin{equation}
     f(\beta) = P(\beta)+\frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n
     \end{equation}$$
 
@@ -51,16 +52,18 @@
 
     On remarque que l'équation de tangente d'une fonction $f$ une fois
     dérivable en $\alpha$ correspond au premier terme de la formule de Taylor.
-    En effet
+    En effet, pour $n = 1$
 
-    $$\begin{equation}
-    \text{Pour } n = 1: P(t) = \sum{k = 0}^{n}\frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k = f'(\alpha)(t - \alpha) + f(\alpha)
-    \end{equation}$
+    $$\begin{align}
+      P(t) & = \sum_{k = 0}^{n}\frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k \\
+           & = f'(\alpha)(t - \alpha) + f(\alpha)
+    \end{align}$$
 
     Ainsi, on peut dire que la fonction définie par l'équation de tangente de
     $f$ est une approximation de $f$ au point $x$. Autrement dit, c'est
     l'approximation "la plus locale" de $f$. 
 
+    </br>
     </body>
 
     <br>
