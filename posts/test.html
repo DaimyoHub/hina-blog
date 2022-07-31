@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf8 />
+    <meta name=viewport content=\"width=device-width, initial-scale=1.0\" />
+    
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+      src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <title><!-- TITRE --></title>
+
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"../style.css\"/>
+  </head>
+  <body>
+    <img src="../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
+
+    <h1>Hina</h1>
+    <p>Mathématiques et informatique.</p>
+
+    <br/>
+
+    <a href=\"../index.html\">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href=\"../about.html\">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href=\"../contact.html\">Me contacter</a>
+
+    <hr/>
+
+    $\textbf{Formule de Taylor :}$ Soit $f$ une fonction à valeurs réelles
+    définie sur $[a, b]$, admettant une dérivée d'ordre $n - 1$ ($n \ge 1$)
+    continue sur ce segment et une dérivée d'ordre $n$ sur l'intervalle ouvert
+    $]a, b[$; alors, si pour deux points quelconques distincts $\alpha$ et
+    $\beta$ de $[a, b]$, on pose
+
+    $$\begin{equation}
+    P(t) = \sum{k=0}^{n - 1} \frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k
+    \end{equation}$$
+
+    il existe un point $x$ compris entre $\alpha$ et $\beta$ vérifiant
+
+    $$\begin{equation}\label{eq:heh}
+    f(\beta) = P(\beta)+\frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n
+    \end{equation}$$
+
+    [...]. Dans le cas général, la formule de Taylor montre que $f$ peut être
+    approchée par un polynôme de degré $n - 1$ et que $(2)$ fournit une
+    évaluation de l'erreur si on connait un majorant de $|f^{(n)}(x)|$.
+
+    On remarque que l'équation de tangente d'une fonction $f$ une fois
+    dérivable en $\alpha$ correspond au premier terme de la formule de Taylor.
+    En effet
+
+    $$\begin{equation}
+    \text{Pour } n = 1: P(t) = \sum{k = 0}^{n}\frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k = f'(\alpha)(t - \alpha) + f(\alpha)
+    \end{equation}$
+
+    Ainsi, on peut dire que la fonction définie par l'équation de tangente de
+    $f$ est une approximation de $f$ au point $x$. Autrement dit, c'est
+    l'approximation "la plus locale" de $f$. 
+
+    </body>
+
+    <br>
+    <footer>
+      <hr/>
+
+      <a href="../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../contact.html">Me contacter</a>
+
+      <br/><br/>
+
+      <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
+      </a>
+
+      <br/>
+
+      Copyright (c) 2022 Daimyo. Ce blog est sous license <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    </footer>
+</html>
