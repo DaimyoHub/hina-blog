@@ -60,3 +60,11 @@ img {
 	line-height: 1.1;
 	padding: 7px;
 }
+
+.title .chapter {
+  font-style: underline;
+}
+
+.section {
+  font-style: italic;
+}

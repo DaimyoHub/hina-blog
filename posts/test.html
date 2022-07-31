@@ -21,8 +21,10 @@
   <body>
     <img src="../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
 
+    <center>
     <h1>Hina</h1>
     <p>La prépa scientifique, l'informatique et les mathématiques.</p>
+    </center>
 
     <br/>
 
@@ -31,40 +33,46 @@
     <a href="../contact.html">Me contacter</a>
 
     <hr/>
-    <br/>
 
-    $\textbf{Formule de Taylor :}$ Soit $f$ une fonction à valeurs réelles
+    <h1 class="title"><u>Formule de Taylor</u></h1>
+
+    <h2 class="sect"><i>Définition</i></h2>
+
+    Soit $f$ une fonction à valeurs réelles
     définie sur $[a, b]$, admettant une dérivée d'ordre $n - 1$ ($n \ge 1$)
     continue sur ce segment et une dérivée d'ordre $n$ sur l'intervalle ouvert
     $]a, b[$; alors, si pour deux points quelconques distincts $\alpha$ et
     $\beta$ de $[a, b]$, on pose
 
-    $$\begin{equation}
+    \begin{equation}
     P(t) = \sum_{k=0}^{n - 1} \frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k
-    \end{equation}$$
+    \end{equation}
 
     il existe un point $x$ compris entre $\alpha$ et $\beta$ vérifiant
 
-    $$\begin{equation}
+    \begin{equation}
     f(\beta) = P(\beta)+\frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n
-    \end{equation}$$
+    \end{equation}
 
     [...]. Dans le cas général, la formule de Taylor montre que $f$ peut être
-    approchée par un polynôme de degré $n - 1$ et que $(2)$ fournit une
+    approchée par un polynôme de degré $n - 1$ et que la seconde équation fournit une
     évaluation de l'erreur si on connait un majorant de $|f^{(n)}(x)|$.
 
+    <h2><i>Relation avec l'équation de tangente</i></h2>
+
     On remarque que l'équation de tangente d'une fonction $f$ une fois
-    dérivable en $\alpha$ correspond au premier terme de la formule de Taylor.
-    En effet, pour $n = 1$
+    dérivable en $\alpha$ correspond au premier terme du développement en série
+    de Taylor donné par la formule ci-dessus. En effet, pour $n = 1$
 
-    $$\begin{align}
-      P(t) & = \sum_{k = 0}^{n}\frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k \\
-           & = f'(\alpha)(t - \alpha) + f(\alpha)
-    \end{align}$$
+    \begin{align}
+      \tau(t) & = \sum_{k = 0}^{n}\frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k \\
+               & = \frac{f^{(0)}(\alpha)}{0!}(t - \alpha)^0 + \frac{f^{(1)}(\alpha)}{1!}(t - \alpha)^1 \\
+               & = f(\alpha) + f'(\alpha)(t - \alpha)
+    \end{align}
 
-    Ainsi, on peut dire que la fonction définie par l'équation de tangente de
-    $f$ est une approximation de $f$ au point $x$. Autrement dit, c'est
-    l'approximation "la plus locale" de $f$. 
+    Ainsi, la fonction $\tau$ définie par l'équation de tangente de
+    $f$ est une approximation de $f$ au point $\alpha$. De façon informelle, $\tau$ est
+    l'approximation "la plus locale" et "la moins précise" de $f$ en $\alpha$. 
 
     </br>
     </body>
