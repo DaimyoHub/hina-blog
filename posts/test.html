@@ -38,6 +38,35 @@
 
     <h2 class="sect"><i>Définition</i></h2>
 
+    \usepackage{pgfplots}
+ 
+\pgfplotsset{compat = newest}
+ 
+\begin{document}
+ 
+\begin{tikzpicture}
+ 
+\begin{axis}[
+    xmin = 0, xmax = 30,
+    ymin = -1.5, ymax = 2.0,
+    xtick distance = 2.5,
+    ytick distance = 0.5,
+    grid = both,
+    minor tick num = 1,
+    major grid style = {lightgray},
+    minor grid style = {lightgray!25},
+    width = \textwidth,
+    height = 0.5\textwidth]
+    \addplot[
+        domain = 0:30,
+        samples = 200,
+        smooth,
+        thick,
+        blue,
+    ] {exp(-x/10)*( cos(deg(x)) + sin(deg(x))/10 )};
+\end{axis}
+ 
+\end{tikzpicture}
     Soit $f$ une fonction à valeurs réelles
     définie sur $[a, b]$, admettant une dérivée d'ordre $n - 1$ ($n \ge 1$)
     continue sur ce segment et une dérivée d'ordre $n$ sur l'intervalle ouvert
