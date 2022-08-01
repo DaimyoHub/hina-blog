@@ -61,10 +61,26 @@ img {
 	padding: 7px;
 }
 
-.title .chapter {
-  font-style: underline;
+.title {
+  background-color: #d8d4cf;
+  text-decoration: underline;
+  font-size: 26pt;
+}
+
+.chapter {
+  background-color: #dad6d1;
+  font-style: italic;
+  font-size: 22pt;
 }
 
 .section {
+  background-color: #dcd8d3;
   font-style: italic;
+  font-size: 18pt;
+}
+
+.point {
+  background-color: #dedad5;
+  font-weight: bold;
+  font-size: 18px;
 }
