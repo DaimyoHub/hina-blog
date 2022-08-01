@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
     <title>A propos de ce blog</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -10,7 +20,8 @@
   <body>
     <img src="./pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
     
-    <h1>Hina</h1>
+    <h1 style="text-align: center">Hina</h1>
+    <p style="text-align: center">La prépa scientifique, l'informatique et les mathématiques.</p>
 
     <br/>
 
@@ -20,25 +31,22 @@
 
     <hr>
 
-    <h1><u>À propos de ce blog.</u></h1>
+    <h3 class="point">À propos de ce blog</h3>
 
     <p>
-      Chaque post est généré via un script en Ruby qui se charge de compiler un
-      fichier au format Markdown en fichier HTML. Une fois compilé, celui-ci est
-      manuellement ajouté dans la liste de posts de l'index, ou autre part, en
-      référence.
+      Sur ce blog, je post des articles à propos de mon quotidien en prépa scientifique,
+      à propos des mathématiques qui j'étudie (majoritairement de l'analyse) et
+      d'informatique théorique.
     </p>
 
     <p>
-      Je m'inspire majoritairement du design et du fonctionnement du <a href="http://wafelack.fr/">"Wafelack's blog"</a>
-      : Les posts sont compilés via un script en Ruby écrit par Wafelack, et modifié selon mes besoins.
+      Pour écrire avec $\LaTeX$, j'utilise <a href="https://www.mathjax.org/">MathJax</a>.
     </p>
 
     <p>
-      <b><i>Disclaimer à propos de la fiabilité du blog:</i></b> Ce blog n'est pas une source
-      d'apprentissage fiable, il n'est pas non-plus exhaustif. Il me sert de "carnet
-      de suivi", pour le développement de mes projets.
+      Les articles sont écrits à la main, en HTML. Je vise la simplicité.
     </p>
+
   </body>
 
   <br>
@@ -50,6 +58,6 @@
 
     <br/>
 
-    Copyright (c) 2021 Daimyo. Ce blog est sous license <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    Copyright (c) 2022 Daimyo. Ce blog est sous license <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
   </footer>
 </html>
