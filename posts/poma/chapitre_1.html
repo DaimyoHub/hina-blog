@@ -126,7 +126,90 @@
 
     <h3 class="point">Corps commutatifs</h3>
 
+    <p>
+      Ja structure de corps commutatif est présentée. Rudin donne les axiomes de l'addition (A),
+      de la multiplication (M) et de la distributivité (D). Quelques propriétés sont données
+      plus loin, la preuve de celles concernant la multiplication est laissée au
+      lecteur, la voici :
+
+      <br><br>
+
+      <i>
+        <b>Proposition $\quad$</b> La multiplication vérifie dans tous corps les
+        quatres propriétés suivantes :
+
+        <ol type="a">
+          <li>$\quad$ Si $x \neq 0$ et si $xy=xz$, alors $y = z$.</li>
+          <li>$\quad$ Si $x \neq 0$ et si $xy = x$, alors $y = 1$.</li>
+          <li>$\quad$ Si $x \neq 0$ et si $xy = 1$, alors $y = 1/x$.</li>
+          <li>$\quad$ Si $x \neq 0$ alors $1/(1/x) = x$.</li>
+        </ol>
+
+        <b>Preuve $\quad$</b> Si $xy = xz$, on déduit des axiomes (M) :
+
+        \begin{equation}
+        y = 1 \times y = (\frac{1}{x} \times x) \times y = \frac{1}{x} \times (x \times y) = \frac{1}{x} \times x \times z = 1 \times z = z
+        \end{equation}
+
+        On a donc établi (a). En prenant successivement $z = 1$ puis $z = 1/x$ dans
+        (a), on obtient (b) puis (c). Enfin, en remplaçant $x$ par $1/x$ dans (c),
+        on obtient (d).
+      </i>
+
+    </p>
+
     <h3 class="point">Corps des réels</h3>
+
+    <p>
+      Dans cette partie, Walter Rudin donne un théorème que l'on doit admettre :
+      <i><b>Il existe un corps commutatif ordonné $\mathbb{R}$ possédant la propriété
+      de la borne supérieure. De plus, $\mathbb{Q}$ est un sous-corps de $\mathbb{R}$.</b></i>
+    </p>
+
+    <p>
+      Autres théorèmes : 
+      
+      <ol type="a">
+        <li>$\mathbb{R}$ est archimédien. ($nx > y$)</li>
+        <li>$\mathbb{Q}$ est dense dans $\mathbb{R}$. ($x < p < y$)</li>
+      </ol>
+
+      Je trouve la preuve de (a) particulièrement élégante. Je la note pour m'en
+      rappeler quand je lirai le post :
+
+      <br><br>
+
+      <i>
+        Soit $A$ l'ensemble de tous les nombres de la forme $nx$, $n \in \mathbb{N} - \{0\}$.
+        Si (a) était faux, $y$ serait un majorant de $A$, qui admettrait une borne
+        supérieure dans $\mathbb{R}$. Posons $\alpha = \sup{A}$. De $x > 0$, on déduit
+        que $\alpha - x < \alpha$ et donc $\alpha - x$ n'est pas un majorant de 
+        $A$. On peut donc trouver un entier $m > 0$ tel que $\alpha - x < mx$. Mais
+        alors on aurait $\alpha < (m + 1)x \in A$, d'ou la contradiction, $\alpha$
+        étant un majorant de $A$.
+      </i>
+    </p>
+
+    <p>
+      Ensuite, l'auteur aborde la notion de racine n-ième. Pour tout réel $x$, il
+      prouve le théorème : <i>Pour tout nombre réel $x > 0$ et tout nombre entier
+      $n > 0$, il existe un unique nombre réel $y > 0$ tel que $y^n = x$</i>.
+
+      <br>
+
+      J'ai du mal à comprendre les preuves concernant les racines n-ièmes, il faudra
+      que je m'y penche plus.
+
+      Enfin, l'auteur définit les nombres décimaux, et de la borne supérieure d'un
+      ensemble $E$ constitué de nombres dans $\mathbb{D}$.
+    </p>
+
+    <p class="note">
+      Dans cette partie, j'ai l'impression de fleurter avec le concept de limite,
+      de "tendre vers". J'attends que le livre me confirme cette impression. À ce
+      moment, je pense commencer à comprendre vaguement l'apport de $\mathbb{R}$
+      par rapport à $\mathbb{Q}$.
+    </p>
 
     <!-- ARTICLE CONTENT -->
 
