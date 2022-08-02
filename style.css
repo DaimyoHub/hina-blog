@@ -50,14 +50,14 @@ img {
   text-align: center;
 }
 
-.language-cpp {
-	border-top: 1px solid #5a403e;
-	border-bottom: 1px solid #5a403e;
-	background-color: #eee;
-	color: #444;
+.note {
+  margin-left: 10px;
+  margin-right: 10px;
+	border-left: 2px solid #5a403ea0;
+	background-color: #e8e4df;
+	color: #444a;
 	font-family: monospace;
-	font-size: 12px;
-	line-height: 1.1;
+	font-size: 11px;
 	padding: 7px;
 }
 
@@ -65,22 +65,27 @@ img {
   background-color: #d8d4cf;
   text-decoration: underline;
   font-size: 26pt;
+  text-align: center;
 }
 
 .chapter {
   background-color: #dad6d1;
   font-style: italic;
+  text-decoration: underline;
   font-size: 22pt;
+  padding-left: 10px;
 }
 
 .section {
   background-color: #dcd8d3;
   font-style: italic;
   font-size: 18pt;
+  padding-left: 30px;
 }
 
 .point {
   background-color: #dedad5;
   font-weight: bold;
   font-size: 18px;
+  padding-left: 50px;
 }

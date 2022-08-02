@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PoMA: Chapitre 1</title>
+
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <meta charset=utf8 />
+    <meta name=viewport content=width=device-width, initial-scale=1.0 />
+
+    <link rel="stylesheet" type="text/css" href="../../style.css"/>
+  </head>
+  <body>
+    <img src="../../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
+
+    <h1 style="text-align: center">Hina</h1>
+    <p style="text-align: center">La prépa scientifique, l'informatique et les mathématiques.</p>
+
+    <br/>
+
+    <a href="../../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../../contact.html">Me contacter</a>
+
+    <hr/>
+
+    <!-- ARTICLE CONTENT -->
+
+    <h1 class="title">Chapitre 1 - Nombres réels et complexes</h1>
+
+    <h2 class="section">Introduction</h2>
+
+    <p>
+      Walter Rudin nous plonge dans son livre de façon raisonnée : avant d'aborder
+      quelconque notion d'analyse, il faut connaître notre système numérique, ses
+      lacunes, et les solutions que les mathématiciens leur ont trouvé.
+    </p>
+
+    <h3 class="point">Carences des nombres rationnels</h3>
+
+    <p>
+      Premièrement, on apprend que l'<b>ensemble des entiers rationnels</b>, bien qu'il
+      ait certaines propriétés intéressantes (comme le fait qu'entre deux rationnels
+      quelconques, il en existe toujours un troisième), <b>possède des lacunes</b>. On
+      découvre alors les nombres irrationnels.
+    </p>
+
+    <p>
+      La toute première preuve du livre démontre qu'il n'existe aucun nombre
+      rationnel $p$ tel que $p^2 = 2$ (<i>i.e.</i> $\sqrt{2} \notin \mathbb{Q}$). Ensuite,
+      on apprend que $\mathbb{Q}$ <b>ne possède pas la propriété de la borne supérieure
+      ni de la borne inférieure</b>.
+    </p>
+
+    <p class="note">
+      Dans le livre, l'absence des propriétés ci-dessous sont perçues comme des
+      carences puisqu'elles ne permettent pas d'utiliser les outils d'analyse
+      étudiés plus tard. Cependant, comme je n'ai pas connaissance de la définition
+      de ces outils, je ne peux pas comprendre complètement et par moi-même le
+      fait que $\mathbb{Q}$ soit insuffisant. Ce point-ci est flou, et j'espère 
+      qu'il prendra sens au cours de ma lecture
+    </p>
+
+    <h3 class="point">Enjeux de cette première partie</h3>
+
+    Le but de cette première partie est donc de 
+
+    <ul>
+      <li><b>Découvrir le corps $\mathbb{R}$, qui corrige les carences de $\mathbb{Q}$</b></li>
+      <li><b>Construire la base numérique de toute notion d'analyse</b></li>
+    </ul>
+
+    <h2 class="section">Découverte des nombres réels</h2>
+
+    <p>
+      D'abord, l'auteur expose le principe de majoration/minoration, et de borne 
+      supérieure/inférieure. Aussi, il présente quelques notions basiques de la théorie
+      des ensembles (sous-ensemble, appartenance d'un élément à un ensemble).
+    </p>
+
+    <p>
+      La proposition suivante parait importante pour la suite de la lecture : Si
+      $A \subset \mathbb{Q}$, alors $A$ n'a pas de borne.
+    </p>
+
+    <p class="note">
+      Je suppose que ces notions fondamentales permettront de comprendre prochainement
+      le concept de limite et de "tendre vers".
+    </p>
+
+    <h3 class="point">Ensembles ordonnés</h3>
+
+    <p>
+      Le concept d'ordre est introduit différement dans la version française du livre,
+      il est plus intuitif, logiquement parlant, dans la version originale :
+
+      <br><br>
+
+      <i>
+        Let S be a set. An <b>order</b> on S is a relation, denoted by < with the
+        following two properties:
+
+        <br>
+
+        $\quad$ <b>(i)</b> If $x \in S$ and $y \in S$, then one and only one of the statements
+        
+        \begin{equation}
+        x < y, \quad x = y, \quad x > y
+        \end{equation}
+
+        is true.
+
+        <br>
+
+        $\quad$ <b>(ii)</b> If $x, y, z \in S$, if $x < y$ and $y < z$, then $x < z$.
+      </i>
+    </p>
+
+    <h3 class="point">Corps commutatifs</h3>
+
+    <h3 class="point">Corps des réels</h3>
+
+    <!-- ARTICLE CONTENT -->
+
+    </br>
+    </body>
+
+    <br>
+    <footer>
+      <hr/>
+
+      <a href="../../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../../contact.html">Me contacter</a>
+
+      <br/><br/>
+
+      <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
+      </a>
+
+      <br/>
+
+      Copyright (c) 2022 Daimyo. Ce blog est sous license <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    </footer>
+</html>
