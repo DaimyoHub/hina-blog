@@ -226,6 +226,198 @@
       par rapport à $\mathbb{Q}$.
     </p>
 
+    <h2 class="section">La droite réelle achevée</h2>
+
+    <p>
+      Cette partie permet de faire le lien entre le corps des réels et les infinis.
+      L'auteur donne les conventions de calcul intuitives entre un réel et un infini.
+      Les infinis seront utilisés avec la notion de limite et de divergence. 
+    </p>
+
+    <h2 class="section">Le corps des complexes</h2>
+
+    <h3 class="point">Liens avec les réels</h3>
+
+    <p>
+      D'abord, on découvre les nombres complexes et leurs liens avec les nombres
+      réels. On donne $0 = (0, 0)$ et $1 = (1, 0)$ et on montre qu'avec une addition
+      et une multiplication et un inverse définis par 
+
+      \begin{align}
+      & x + y       = (a + c, b + d) \\
+      & xy          = (ac - bd, ad + bc) \\
+      & \frac{1}{x} = (\frac{a}{a^2+b^2}, \frac{-b}{a^2+b^2})
+      \end{align}
+
+      pour $x = (a, b)$ et $y = (c, d)$, les axiomes de l'addition, de la multiplication
+      et de la distributivité sont étendus de $\mathbb{R}$ vers $\mathbb{C}$.
+    </p>
+
+    <h3 class="point">Le nombre $i$</h3>
+
+    <p>
+      Ensuite, on découvre la définition de $i$ avec les théorèmes qui affirment
+      que $i^2 = -1$ et que $(a, b) = a + ib$.
+    </p>
+
+    <p class="note">
+      La définition de $i$ par $i = (0, 1)$ est très intuitive et plus simple à
+      comprendre que la définition abstraite donnée avec le carré. Elle est triviale,
+      puisqu'en utilisant le théorème 1.29, on sait que $i = 0 + i \times 1 = (0, 1)$,
+      mais je trouve que la notation en couple de réels est élégante.
+    </p>
+
+    <h3 class="point">Conjugué et module</h3>
+
+    <p>
+      On apprend ensuite les propriétés du conjugué : $z = a + ib$, $\overline{z} = a - ib$,
+      puis celles du module : $|z| = \sqrt{z\overline{z}} = \sqrt{a^2 + b^2}$. Je ne maitrise pas
+      encore complètement les propriétés du module, je dois me pencher là dessus.
+    </p>
+
+    <h3 class="point">Inégalité de Cauchy-Schwarz</h3>
+
+    <p>
+      On obtient la définition de la somme de nombre complexes (\mathbb{R} \subset \mathbb{C}
+      : la somme s'applique aussi aux réels). Cette somme nous permet de découvrir
+      l'inégalité de Cauchy-Schwarz; notion à laquelle je dédie une grosse partie,
+      puisque je m'y suis penché en détail.
+    </p>
+
+    <p>Le livre donne :</p>
+
+    <p>
+      <b>Théorème</b> $\quad$ Si pour $n \geq 1$, $a_1,...,a_n$ et $b_1,...,b_n$
+      sont des nombres complexes, alors : 
+      
+      \begin{equation}
+      \Bigg{|} \sum^{n}_{j = 1}{a_j\overline{b_j}} \Bigg{|}^2 \leq \sum^{n}_{j=1}{|a_j|^2} \sum^{n}_{j=1}{|b_j|^2}
+      \end{equation}
+
+      <b>Preuve</b> $\quad$ Posons $A = \sum^{n}_{j=1}{|a_j|^2}$, $B = \sum^{n}_{j=1}{|b_j|^2}$
+      et $C = \sum^{n}_{j=1}{a_j\overline{b_j}}$. Si $B = 0$, alors $b_1 = ... = b_n = 0$,
+      et la conclusion est évidente. Supposons donc que $B > 0$. On aura, en utilisant
+      le théorême 1.31 (propriétés du conjugué) :
+
+      \begin{align}
+      \sum^{n}_{j=1}{|Ba_j - Cb_j|^2} & = \sum^{n}_{j=1}{(Ba_j - Cb_j)(B\overline{a_j} - \overline{Cb_j})} \\
+                                      & = B^2\sum^{n}_{j=1}{|a_j|^2}-B\overline{C}\sum^{n}_{j=1}{a_j\overline{b_j}}-BC\sum^{n}_{j=1}{\overline{a_j}b_j}+|C|^2\sum^{n}_{j=1}{|b_j|^2} \\
+                                      & = B^2A - B|C|^2 \\
+                                      & = B(BA - |C^2|)
+      \end{align}
+
+      La première somme étant évidemment positive, on voit que
+
+      \begin{equation}
+      B(BA - |C|^2) \geq 0
+      \end{equation}
+
+      Puisque $B > 0$, on en déduit que $BA - |C|^2 \geq 0$, ce qui est bien l'égalité
+      annoncée.
+    </p>
+
+    <p>
+      Je vais décortiquer cette partie du livre et donner les analyses que j'en ai
+      faite :
+    </p>
+
+    <p>
+      Premièrement la preuve s'appuie sur une formule dont on sait évidemment la
+      positivité : $\sum^{n}_{j=1}{|Ba_j - Cb_j|^2}$. Au bout du développement
+      de cette somme, on trouve la formule de notre inégalité disposée comme une 
+      différence de l'expression de droite par l'expression de gauche. Enfin, on
+      se sert de la propriété qui dit que pour $a > 0$ et $b \in \mathbb{C}$, si
+      $ab > 0$, alors $b > 0$. Ce qui nous permet d'affirmer que $|C|^2 \leq BA$.
+    </p>
+
+    <p>
+      J'ai trouvé un preuve que je trouve plus jolie, qui se base sur les propriétés
+      d'un polynôme du second degré. La voici :
+
+      <br><br>
+
+      <b>Seconde preuve</b> $\quad$ Pour $\lambda \in \mathbb{R}$ :
+
+      \begin{align}
+      P(\lambda) & = \sum^{n}_{j=1}{(|a_j| + \lambda|b_j|)^2} \\
+                 & = \sum^{n}_{j=1}{(|a_j|^2 + 2\lambda|a_j||b_j| + \lambda^2|b_j|^2)} \\
+                 & = \lambda^2\sum^{n}_{j=1}{|b_j|^2} + 2\lambda\sum^{n}_{j=1}{|a_j||b_j|} + \sum^{n}_{j=1}{|a_j|^2}
+      \end{align}
+
+      $P$ est un polynôme du second degré évidemment positif. Ce qui signifie
+      que son discriminant $\Delta \leq 0$, or
+
+      \begin{align}
+      \Delta & = 4(\sum^{n}_{j=1}{|a_j||b_j|})^2 - 4(\sum^{n}_{j=1}{|b_j|^2} \sum^{n}_{j=1}{|a_j|^2}) \\
+             & = 4(\sum^{n}_{j=1}{|a_j||b_j|})^2 - \sum^{n}_{j=1}{|b_j|^2} \sum^{n}_{j=1}{|a_j|^2}) \\
+      \end{align}
+
+      Donc
+      
+      \begin{equation}
+      (\sum^{n}_{j=1}{|a_j||b_j|})^2 - \sum^{n}_{j=1}{|b_j|^2} \sum^{n}_{j=1}{|a_j|^2} \leq 0
+      \end{equation}
+
+      Finalement, on trouve l'inégalité annoncée.
+    </p>
+
+    <p>
+      Dans la première preuve, j'ai constaté deux choses :
+      <ul>
+        <li>Le conjugé de $Ba_j - Cb_j$ est $B\overline{a_j} - \overline{Cb_j}$. À priori,
+          ce conjugé à l'air "bizarre", j'ai donc essayé de comprendre sa forme :
+          
+          \begin{equation}
+          Ba_j - Cb_j = \sum{|b_j|^2}a_j - \sum{|a_j||b_j|}b_j
+          \end{equation}
+
+          On applique le conjugé sur tous les nombres complexes. $B$ est une somme
+          de réels positifs, on ne la conjugue pas. Pour le reste, on conjuge.
+          On trouve donc bien
+
+          \begin{align}
+          \overline{Ba_j} - \overline{Cb_j} & = \sum{|b_j|^2}\overline{a_j} - \overline{\sum{|a_j||b_j|}b_j} \\
+                                            & = B\overline{a_j} - \overline{Cb_j}
+          \end{align}
+        </li>
+        <li>
+          Dans la somme de gauche donnée dans le théorème, on multiplie $a_j$ par
+          le conjugué de $b_j$. J'ai donc demandé de l'aide, et voici ce que j'en
+          ai compris : L'inégalité de Cauchy-Schwarz peut s'écrire sous la forme
+          $\langle u, v \rangle^2 \leq \langle u, u \rangle \cdot \langle v, v \rangle$
+          avec $\langle a, b \rangle$ étant le produit scalaire de $a$ par $b$, deux
+          éléments d'un espace préhilbertien. Le produit scalaire est définit par
+          $\sum{a_jb_j}$ et il est toujours positif. Or, dans $\mathbb{C}$, cette
+          opération ne donne pas toujours un résutat positif. Par exemple, pour
+          $z = 3 + 8i$, le produit scalaire de $z$ par $z$ serait $-55$. Par contre,
+          le produit scalaire de $z$ par son conjugué serait toujours positif. Je
+          ne pense pas que ce soit la véritable raison de la présence de ce conjugué,
+          mais ça m'a au moins permis d'en apprendre plus sur le produit scalaire
+          et su l'inégalité de Cauchy-Schwarz. Je pense que le conjugué est présent
+          pour que la démonstration donnée par le livre soit correcte.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Enfin, j'ai découvert que le porduit scalaire pouvait simplement être interprété
+      de façon géométrique : le produit scalaire de deux vecteurs est inférieur
+      au produit de la norme de ces deux vecteurs : 
+
+      <br><br>
+
+      Pour $u, v \in \mathbb{R}^n$ :
+
+      \begin{equation}
+      |\langle u, v \rangle| \leq ||u|| \cdot ||v||
+      \end{equation}
+    </p>
+
+    <p>
+      Cette inégalité servira lorsque l'on parlera de relation d'ordre entre des
+      intégrales. Je suis curieux de savoir comment cela pourrait fonctionner.
+    </p>
+
     <!-- ARTICLE CONTENT -->
 
     </br>
