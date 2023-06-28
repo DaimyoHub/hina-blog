@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YOUR ARTICLE TITLE</title>
+    <title>Problème SAT</title>
 
     <script>
       MathJax = {
@@ -50,28 +50,268 @@
     <ol>
       <li>Présentation du problème</li>
       <li>Algorithme de Quine-McCluskey</li>
-      <li>Substitution et transformation</li>
-      <li>Implémentation</li>
-      <li>Correction, terminaison et complexité</li>
+      <li>Analyse de l'agorithme</li>
       <li>Applications</li>
+      <li>Quelques références</li>
     </ol>
 
     <h3 class="chapter">Présentation du problème</h3>
 
     <p>
-      Le problème SAT (pour SATisfiabilité) est un problème du calcul propositionnel.
-      On peut le résumer ainsi : étant donné une formule du calcul propositionnel
-      existe-t-il une façon d'associer des valeurs de vérité aux variables de la
-      formule pour que celle-ci soit évaluée comme vraie.
+      Le <b>problème SAT</b> (pour SATisfiabilité) est un problème du
+        <a href="https://fr.wikipedia.org/wiki/Calcul_des_propositions">calcul
+          propositionnel</a>. On peut le résumer ainsi : étant donné une formule
+      du calcul propositionnel existe-t-il une façon d'associer des valeurs de
+      vérité aux variables de la formule pour que celle-ci soit évaluée comme vraie.
     </p>
 
+    <h4 class="point">Au delà du concept technique</h4>
+
     <p>
-      Conceptuellement, le problème SAT représente un problème de vérification des propriétés
-      d'un modèle (dans le sens informel et abstrait) en fonction de contraintes
+      Conceptuellement, le problème SAT représente un problème de <b>vérification des propriétés</b>
+      d'un modèle (dans le sens informel et abstrait) en fonction de <b>contraintes</b>
       qu'on lui impose. Par exemple, si l'on souhaite trouver une façon d'organiser
       chronologiquement les passages en entretient de nombreux candidats pour un
       poste, en ne disposant que d'un nombre réduit d'examinateurs, on peut se ramener
       à la résolution d'un problème SAT associé.
+
+      <p class="note">En fait, on pourra s'intéresser à la
+        <a href="https://fr.wikipedia.org/wiki/Coloration_de_graphe">coloration de
+          graphes</a> pour résoudre ce problème.
+      </p>
+    </p>
+
+    <h4 class="section">Illustration</h4>
+
+    <p>
+      Dans les exemples, on note $V$ la valeur booléenne vraie et $F$ la valeur
+      booléenne fausse.
+      <br>
+      On appelle <b>valuation</b> une fonction $\sigma$ qui a un ensemble de variables
+      propositionnelles associe ou bien $V$, ou bien $F$. Pour toute formule $P$
+      du calcul propositionnel, on note alors $[\![P]\!]_{\sigma}$ l'évaluation
+      de $P$ en fonction de la valuation $\sigma$ : c'est la valeur booléenne associée
+      à une formule en fonction d'une valuation donnée.
+      <br>
+      Enfin, on note $\lor$ le symbole correspondant au <i>ou</i> logique et $\land$
+      celui correspondant au <i>et</i> logique.
+    </p>
+
+    <p>
+      Considérons la formule suivante : $P = (a \lor \neg b \lor c) \land (\neg
+      a \lor \neg c)$. Pour chaque variable présente dans la formule donnée, déterminons la valeur
+      booléenne à lui associer pour que la $P$ soit évaluée comme vraie. 
+
+      On remarque que lorsque l'on choisit $a := V$, $b := V$ et $c := F$
+      on a bien $P$ évaluée en $V$.
+
+      On peut donc définir la <b>valuation</b> $\sigma$ qui <b>satisfait</b> $F$
+      par :
+
+      \[
+        \sigma(a) = V, \quad \sigma(b) = V, \quad \sigma(c) = F
+      \]
+
+      et on obtient alors $[\![P]\!]_{\sigma} = V$.
+
+      <p class="note">
+        On peut montrer avec un contre exemple que la valuation trouvée n'est pas
+        toujours unique. En effet, la plupart du temps, on peut en déterminer plusieurs
+        qui satisfont la formule donnée.
+      </p>
+    </p>
+
+    <h4 class="point">FNC (Forme Normale Conjonctive)</h4>
+
+    <p>
+      Dans l'exemple donné, la formule $P$ est sous <b>forme normale conjonctive</b>. 
+      Cela signifie qu'elle est sous forme de conjonctions de disjonctions.
+      Autrement dit, c'est une suite de <i>et</i> logique sur des sous-formules qui sont des
+      suites de <i>ou</i> logiques entre des variables, ou leur négation : 
+      
+      \[
+        (l_1 \lor l_2 \lor ... \lor l_n) \land (l_1 \lor l_2 \lor ... \lor l_p) \land (l_1 \lor l_2 \lor ... \lor l_m)
+      \]
+      
+      Dans cet article, on s'intéresse à la résolution du problème SAT
+      pour les formules de cette forme. À priori, nous pourrions penser que cette
+      contrainte sur la forme d'une formule réduit le champs d'action de l'algorithme,
+      mais en réalité, nous pouvons démontrer <a href="https://fr.wikipedia.org/wiki/Forme_normale_conjonctive#Conversion_en_FNC_%C3%A9quivalente">
+        toute formule du calcul propositionnel
+      peut être écrite sous forme normale conjonctive</a>.
+    </p>
+
+    <h4 class="point">1-SAT, 2-SAT, 3-SAT, k-SAT...</h4>
+
+    <p>
+      Dans une formule sous FNC, on peut déterminer le nombre maximal de variables
+      utilisées dans ses sous-formules. En notant ce nombre $p$, on dit alors que
+      l'on résout un problème p-SAT. 
+    </p>
+
+    <p>
+      Lorsque $p = 1$, pour déterminer $\sigma$, on associe à chaque variable (ou sa négation) une
+      valeur booléenne qui la rend vraie. Le temps de résolution du problème (la complexité temporelle) avec cette méthode est de l'ordre du nombre
+      de variables dans la formule.
+    </p>
+
+    <p>
+      Lorsque $p = 2$, les choses se compliquent un peu lorsque l'on souhaite obtenir
+      encore une fois une complexité temporelle en temps linéaire au nombre de variables,
+      car cela implique l'utilisation de théories qui n'ont à priori pas de rapport avec le problème (la
+      <a href="https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes">théorie des graphes</a>).
+      Sans entrer dans les détails,
+      pour déterminer $\sigma$, <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_2-SAT">on construit un graphe d'implication puis on le
+      manipule en s'intéressant à sa connexité</a>.
+    </p>
+
+    <p>
+      Lorsque $p = 3$, la résolution du problème se rapproche de celle celle du
+      problème k-SAT (lorsque p est quelconque). La méthode est exposée dans la
+      partie suivante. Cependant, ce qui est intéressant concernant ce cas est
+      le fait que la résolution du problème k-SAT peut toujours se rapporter à
+      la résolution d'un problème 3-SAT. Je n'approfondie pas le sujet car je 
+      n'ai ni les compétences, ni les connaissances nécessaires pour en parler
+      précisément et correctement.
+    </p>
+
+    <h3 class="chapter">Algorithme de Quine-McCluskey</h3>
+
+    <h4 class="point">Principe général</h4>
+
+    <p>
+      L'algorithme de Quine-McCluskey permet de résoudre le problème k-SAT en se
+      basant sur le principe de <b><a href="https://en.wikipedia.org/wiki/Backtracking">retour sur trace</a></b>
+      En voici le principe général.
+    </p>
+
+    <p>
+      En considérant une formule $P$ sous FNC et une valuation partielle $\sigma$, pour
+      chaque variable $x$ dans la formule, tant que l'évaluation de $P$ avec $\sigma$
+      n'est pas $V$
+
+      <ul>
+        <li>
+          on <b>substitue</b> d'une part $x$ avec $V$ (et $\neg x$ avec $F$), puis on 
+          <b>simplifie</b> la formule
+        </li>
+        <li>
+          on <b>substitue</b> d'autre part $x$ avec $F$ (et $\neg x$ avec $V$), puis on
+          <b>simplifie</b> la formule
+        </li>
+      </ul>
+
+      On appelle alors l'algorithme sur la formule simplifiée en définissant d'une
+      part $\sigma(x) = V$ et d'autre part $\sigma(x) = F$ pour la valuation partielle.
+
+      Lorsque l'algorithme s'arrête, ou bien la valuation partielle trouvée ne 
+      convient pas et on la rejette, ou bien elle convient et on la renvoie.
+    </p>
+
+    <p>
+      En fait, cette méthode revient à <b>tester chaque valuation</b>
+      possible au fur et à mesure de l'exécution, jusqu'à tomber sur celle qui satisfait $P$.
+      Dans l'idée, on pourrait donc construire l'arbre représentant l'ensemble
+      des valuations <b>testées</b> pour le comparer à l'arbre de l'ensemble des
+      valuations <b>possibles</b>, et on remarquerait que le premier correspond au 
+      <b>parcours en profondeur</b> partiel du second.
+    </p>
+
+    <h4 class="point">Substitution et simplification</h4>
+
+    <p>
+      Dans la présentation du principe général, je fais mention de deux étapes fondamentales
+      dans la résolution de l'algorithme : la substitution et la simplification.
+      <br>
+      La substitution de $x$ avec une valeur booléenne $b$ signifie que l'on remplace
+      dans la formule $P$ chaque occurence de $x$ par $P$. La simplification consiste
+      à évaluer la formule issue de la substitution puis à la transformer (réduire sa taille) en fonction
+      de $b$. 
+      <br>
+    </p>
+
+    <p>
+      Considérons par exemple la formule sous FNC suivante : $P = (a \lor \neg b) \land (\neg a \lor \neg b)$.
+      Substituons $a$ par $V$. On a alors $P = (V \lor \neg b) \land (F \lor \neg b)$.
+      On peut alors simplifier (ie. transformer) $P$ de la manière suivante, en 
+      utilisant les règles de la logique : 
+
+      \begin{align}
+        P & = (V \lor \neg b) \land (F \lor \neg b) \\
+          & = V \land \neg b                        \\
+          & = \neg b                 
+      \end{align}
+    </p>
+
+    <p>
+      Lorsque l'on substitue une variable $x$ quelconque de $P$ par une valeur $b$,
+      on peut simplifier $P$ en suivant les règles suivantes, en se basant sur les
+      propriétés du <i>ou</i> logique :
+
+      <ul>
+        <li>
+          Si $b = V$, on supprime toutes les sous formules qui contiennent $x$
+          et on retire toutes les occurences de $\neg x$.
+        </li>
+        <li>
+          Si $b = F$, on supprime toutes les sous-formules qui contiennent $\neg x$
+          et on retire toutes les occurences de $x$.
+        </li>
+      </ul>
+    </p>
+
+    <h3 class="chapter">Analyse de l'algorithme</h3>
+
+    <h4 class="point">Complexité</h4>
+
+    <p>
+      Dans le pire des cas, il n'existe aucune valuation qui satisfait la formule
+      $P$. On dit que $P$ est une antilogie.
+      On remarque alors que cette fois ci, l'arbre issu de la recherche d'une valuation
+      correspond exactement à l'arbre de l'ensemble des valuations possibles.
+      <br>
+      Pour construire cet arbre, il a fallu tester $2^p - 1$ valuations (c'est le nombre de noeuds dans l'arbre), avec $p$
+      qui désigne le nombre de variables dans $P$. On en déduit que le temps d'exécution de l'algorithme
+      est exponentiel et pour une formule contenant plusieurs dizaines de
+      variables distinctes, il est probable que son exécution sur un ordinateur
+      classique dure plusieurs centaines d'années...
+    </p>
+
+    <h4 class="point">Terminaison</h4>
+
+    <h4 class="point">Correction</h4>
+
+    <h3 class="chapter">Applications</h3>
+
+    <h4 class="point">Coloration de graphes</h4>
+
+    <h3 class="chapter">Quelques références</h3>
+
+    <p>
+      Cette liste de références n'est malheureusement pas exhaustive, si vous
+      vous intéressez au sujet traité, je vous conseille fortement de vous
+      renseigner via d'autres ressources et de vérifier la validité du contenu
+      utilisé.
+    </p>
+
+    <ul>
+      <li><a href="https://fr.wikipedia.org/wiki/Calcul_des_propositions">Calcul propositionnel</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_SAT">Problème SAT</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm">Algorithme de Quine-McCluskey</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Backtracking">Méthode du backtracking</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Forme_normale_conjonctive">Formes normales conjonctives</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes">Théorie des graphes</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_3-SAT">Problème 3-SAT</a></li>
+    </ul>
+
+    <ul>
+      <li><a href="https://github.com/DaimyoHub/LogicAlgo/lib/sat.ml">Mon implémentation de l'algorithme en Ocaml</a></li>
+    </ul>
+
+    <h3 class="chapter">Algorithme de Quine-McCluskey</h3>
+
+    <p>
+      L'algorithme de Quine-McCluskey
     </p>
 
     <!-- ARTICLE CONTENT -->
