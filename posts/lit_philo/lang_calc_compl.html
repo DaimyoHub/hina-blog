@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notes langages formels</title>
+
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <meta charset=utf8 />
+    <meta name=viewport content=width=device-width, initial-scale=1.0 />
+
+    <link rel="stylesheet" type="text/css" href="../../style.css"/>
+  </head>
+  <body>
+    <img src="../../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
+
+    <h1 style="text-align: center">Hina</h1>
+    <p style="text-align: center">L'informatique et les mathématiques appliqués
+    à la logique et au langage.</p>
+
+    <br/>
+
+    <a href="../../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../../contact.html">Me contacter</a>
+
+    <hr/>
+
+    <!-- ARTICLE CONTENT -->
+
+    <h1 class="title">Notes sur les langages formels</h1>
+
+    <p class="note">
+      Cet article rassemble mes notes sur l'étude des langages formels, à partir
+      du livre <u>Langages formels, Calculabilité et complexité</u> écrit par 
+      Olivier Carton.
+      Je ne traiterai donc que les chapitres traitant respectivement des langages
+      rationnels et des langages algébriques.
+    </p>
+
+    <h2 class="chapter">Langages rationnels</h2>
+
+    <h4 class="point">Définitions et opérations</h4>
+
+    On définit les alphabets, les mots sur des alphabets, on en déduit la définition
+    d'un ensemble de mots sur un alphabet et on décrit l'ensemble de tous les mots
+    sur un alphabet comme le plus grand (par l'inclusion). La concaténation munit
+    l'ensemble A* des mots sur un alphabet A d'une structure de monoïde (groupe
+    sans éléments symétriques)
+
+    On définit l'union de deux langages et le produit de deux langages (concaténation
+    de chaque mot d'un langage avec chaque mot d'un autre). On définit aussi l'étoile.
+
+    <h4 class="point">Combinatoire</h4>
+
+    On définit les périodes d'un mot et la notion de mot primitif ("qui ne se répète pas").
+    On a le <b>théorême de Fine et Wilf (1965)</b> :
+
+    <p class="note">
+      Si $p$ et $q$ sont deux périodes d'un mot $w$ de longueur supérieure ou
+      égale à $p + q - pgcd(p, q)$, alors $pgcd(p, q)$ est aussi une période de $w$.
+    </p>
+
+    On donne alors le <b>théorême de Guibas et Odlyzko (1981)</b>
+    
+    <p class="note">
+      Pour tout mot $w$, il existe un mot $w'$ sur un alphabet binaire tel que
+      $P(w) = P(w')$.
+    </p>
+
+    Après l'écriture du théorême ci-dessus, je ne me suis pas particulièrement
+    intéressé au reste de la partie.
+
+    <h4 class="point">Ordres</h4>
+
+    <h4 class="point">Langages rationnels</h4>
+
+    <h4 class="point">Automates</h4>
+
+    <h4 class="point">Autres...</h4>
+
+    <!-- ARTICLE CONTENT -->
+
+    </br>
+    </body>
+
+    <br>
+    <footer>
+      <hr/>
+
+      <a href="../../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../../contact.html">Me contacter</a>
+
+      <br/><br/>
+
+      <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
+      </a>
+
+      <br/>
+
+      Copyright (c) 2023 Daimyo. Ce blog est sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    </footer>
+</html>

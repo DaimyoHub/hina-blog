@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YOUR ARTICLE TITLE</title>
+
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <meta charset=utf8 />
+    <meta name=viewport content=width=device-width, initial-scale=1.0 />
+
+    <link rel="stylesheet" type="text/css" href="../../style.css"/>
+  </head>
+  <body>
+    <img src="../../pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
+
+    <h1 style="text-align: center">Hina</h1>
+    <p style="text-align: center">L'informatique et les mathématiques appliqués
+    à la logique et au langage.</p>
+
+    <br/>
+
+    <a href="../../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    <a href="../../contact.html">Me contacter</a>
+
+    <hr/>
+
+    <!-- ARTICLE CONTENT -->
+
+    <h1 class="title">Découverte du lambda-calcul</h1>
+
+    <h4 class="point">Abstraction et application</h4>
+
+    <p>
+      Le lambda-calcul (aussi écrit $\lambda$-calcul) est un système formel
+      élaboré par le scientifique Alonzo Church dans les années 1930 dans le
+      cadre de ses travaux concernant les fondements des mathématiques.
+    </p>
+
+    <p>
+      Les notions d'<b>application</b> et d'<b>abstraction</b> sont définies dans le système
+      de Church.
+
+      <ul>
+        <li>
+          Une <b>abstraction</b> permet de définir une fonction. On peut par
+          exemple définir la fonction qui a $x$ et $y$ associe la valeur $x + y$ de
+          la manière suivante : 
+  
+          \[a \equiv \lambda x.(\lambda y.x + y)\]
+        </li>
+        <li>
+          Une abstraction permet d'appliquer une fonction à un argument donné.
+          par exemple, pour sommer 1 et 2, on peut écrire :
+
+          \[(a \; 2) \; 1\]
+        </li>
+      </ul>
+
+      On remarque dans la formule précédente que l'appel à la fonction de somme
+      se fait en deux temps. En effet, l'abstraction $a$ est définie en deux niveaux : 
+
+      <ul>
+        <li>
+          On définit une variable $x$ à laquelle on associe l'expression suivante
+          <ul>
+            <li>
+              On définit une variable $y$ à laquelle on associe l'expression suivante : x + y</li>
+          </ul>
+        </li>
+      </ul>
+
+      Ainsi, pour faire la somme de 1 et 2, il faut procéder de telle manière : 
+      On élimine le premier niveau en substituant $x$ par 1 puis on élimine le second
+      niveau en substituant $y$ par 2. 
+
+      En fait, de manière informelle, on constate que pour définir une fonction
+      de deux variables, il faut définir une fonction d'une variable qui donnerait
+      comme résultat une autre fonction d'une variable. Cette transformation
+      fût étudiée par le mathématicien <b>Haskell Curry</b> et fût appelée
+      "curryfication" en son honneur.
+    </p>
+
+    <!-- ARTICLE CONTENT -->
+
+    </br>
+    </body>
+
+    <br>
+    <footer>
+      <hr/>
+
+      <a href="../../index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../../about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+      <a href="../../contact.html">Me contacter</a>
+
+      <br/><br/>
+
+      <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
+      </a>
+
+      <br/>
+
+      Copyright (c) 2023 Daimyo. Ce blog est sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    </footer>
+</html>
