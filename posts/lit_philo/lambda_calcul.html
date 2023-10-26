@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YOUR ARTICLE TITLE</title>
+    <title>Lambda-calcul</title>
 
     <script>
       MathJax = {
@@ -37,57 +37,190 @@
 
     <h1 class="title">Découverte du lambda-calcul</h1>
 
-    <h4 class="point">Abstraction et application</h4>
-
     <p>
       Le lambda-calcul (aussi écrit $\lambda$-calcul) est un système formel
       élaboré par le scientifique Alonzo Church dans les années 1930 dans le
       cadre de ses travaux concernant les fondements des mathématiques.
     </p>
 
+    <h4 class="point">Syntaxe et sémantique</h4>
+
     <p>
-      Les notions d'<b>application</b> et d'<b>abstraction</b> sont définies dans le système
-      de Church.
+      Le $\lambda$-calcul est un système formel, grossièrement il est alors définit
+      comme un langage permettant de calculer. Cela nous pousse à considérer deux
+      aspects qui se complètent : la <b>syntaxe</b> et la <b>sémantique</b> d'un tel système.
+
+      <ul>
+        <li>
+          La <b>syntaxe</b> est l'ensemble des mots et des règles qui permettent
+          d'organiser ces mots dans le système. En $\lambda$-calcul, la syntaxe
+          est simple : toute phrase est constitutée de $\lambda$-termes et de variables,
+          que l'on définit par
+
+          \begin{align}
+            \label{eq:a}
+            \langle \lambda \text{-term} \rangle \quad ::= & \quad \langle \text{variable} \rangle \\
+                                                        |  & \quad (\lambda \langle \text{variable} \rangle . \langle \lambda \text{-term} \rangle) \\
+                                                        |  & \quad (\langle \lambda \text{-term} \rangle \langle \lambda \text{-term} \rangle) \\
+            
+            \langle \text{variable} \rangle \quad ::= & \quad x \quad | \quad y \quad | \quad z...
+          \end{align}
+        </li>
+
+        <li>
+          La <b>sémantique</b> calculatoire du $\lambda$-calcul est construite à partir de
+          règles de transformation syntaxique très simples. En appliquant ces 
+          règles à une phrase, on en déduit une nouvelle phrase, plus petite (il faut
+          considérer la notion d'ordre ou de quasi-ordre dans le langage étudié) qui
+          lui est équivalente sémantiquement. En appliquant ces règles <i>un certain
+          nombre de fois</i>, on se trouve face à une phrase qui ne peut être
+          encore réduite et qui est équivalente à la phrase initiale. 
+
+          Les règles en question sont l'<b>$\alpha$-réduction</b> et la <b>$\beta$-réduction</b>.
+
+          <p class="note">
+            Je me demande souvent comment est-il possible de définir le sens d'un
+            langage de manière formelle. C'est le sujet auquel je m'intéresse particulièrement
+            d'un point de vue philosophique et mathématique.
+          </p>
+        </li>
+      </ul>
+
+      De manière informelle, les règles de réduction données permettent de simuler
+      l'exécution d'une suite de calculs écrits en $\lambda$-calcul. Cette interprétation
+      lie clairement le système formel aux langages de programmation fonctionnels.
+      On pourrait imaginer que pour définir la sémantique d'un tel langage, il 
+      serait alors nécessaire de créer des règles de réduction sur sa syntaxe.
+
+      <p class="note">
+        En fait, il s'agirait de l'idée centrale d'un tel besoin. Il faut aussi
+        prendre en considération le fait qu'au bout d'un nombre fini de réductions,
+        la phrase transformée soit atomique. On pourrait enfin inventer un <b>système
+        de réécriture</b> qui termine pour toute entrée possible, pour pouvoir définir
+        la sémantique d'un langage fonctionnel.
+      </p>
+    </p>
+
+    <h4 class="point">Abstraction et application</h4>
+
+    <p>
+      Les notions d'<b>application</b> et d'<b>abstraction</b> sont définies dans
+      le système de Church comme des $\lambda$-termes décrits respectivement par les 
+      deuxième et troisièmes lignes de la notation BNF dans le premier paragraphe.
 
       <ul>
         <li>
           Une <b>abstraction</b> permet de définir une fonction. On peut par
-          exemple définir la fonction qui a $x$ et $y$ associe la valeur $x + y$ de
+          exemple définir la fonction qui à $x$ et $y$ associe la valeur $x + y$ de
           la manière suivante : 
   
-          \[a \equiv \lambda x.(\lambda y.x + y)\]
+          \begin{equation}
+            \lambda x.(\lambda y.x + y)
+          \end{equation}
         </li>
         <li>
-          Une abstraction permet d'appliquer une fonction à un argument donné.
+          Une <b>application</b> permet d'appliquer une fonction à un argument donné.
           par exemple, pour sommer 1 et 2, on peut écrire :
 
-          \[(a \; 2) \; 1\]
+          \begin{equation}
+            ((\lambda x.(\lambda y.x + y)) \; 2) \; 1
+          \end{equation}
         </li>
       </ul>
 
-      On remarque dans la formule précédente que l'appel à la fonction de somme
-      se fait en deux temps. En effet, l'abstraction $a$ est définie en deux niveaux : 
+      Il est essentiel de comprendre que ces deux expressions ne sont que des phrases
+      écrites dans un langage donné, rien de plus. Par analogie, un programme écrit
+      en python n'est rien d'autre qu'une suite de phrases et l'appel à une fonction
+      quelconque se fait lors de l'interprétation et non lors de l'écriture. Cela
+      fait partie de cette distinction importante que l'on doit faire entre la syntaxe
+      et la sémantique.
+    </p>
+
+    <h4 class="point">Sémantique et réductions</h4>
+
+    <p>
+      Comme expliqué précédemment, les techniques de réductions permettent de construire
+      une sémantique calculatoire pour le $\lambda$-calcul. La $\alpha$-réduction
+      et l'$\beta$-réduction sont respectivement définies de la manière suivante :
 
       <ul>
         <li>
-          On définit une variable $x$ à laquelle on associe l'expression suivante
-          <ul>
-            <li>
-              On définit une variable $y$ à laquelle on associe l'expression suivante : x + y</li>
-          </ul>
+          L'$\alpha$-réduction consiste simplement à renommer les variables nommées
+          dans les abstractions. Par exemple, la phrase
+
+          \begin{align}
+            (\lambda x. xx) (\lambda x. x)
+          \end{align}
+
+          après une $\alpha$-réduction devient
+
+          \begin{align}
+            (\lambda x. xx) (\lambda y. y)
+          \end{align}
+        </li>
+
+        <li>
+          La $\beta$-réduction permet grossièrement d'exécuter une application,
+          en transformant les applications en expressions dans lesquelles l'argument
+          a été substitué. Par exemple, la phrase
+
+          \begin{align}
+            ((\lambda x. (\lambda y. x + y)) \; 1) \; 2
+          \end{align}
+
+          après une $\beta$-réduction devient
+
+          \begin{align}
+            (\lambda y. 2 + y) 
+          \end{align}
+
+          En fait, à un niveau d'imbrication donné d'une phrase, on transforme l'écriture
+          sous forme d'application en une écriture sous forme d'un $\lambda$-terme
+          dans lequel toutes les occurences de l'argument dans l'abstraction sont
+          remplacées par le $\lambda$-terme en argument :
+
+          \begin{equation}
+            (\lambda x. M) (A) \; \Longrightarrow \; M[x := A] 
+          \end{equation}
         </li>
       </ul>
-
-      Ainsi, pour faire la somme de 1 et 2, il faut procéder de telle manière : 
-      On élimine le premier niveau en substituant $x$ par 1 puis on élimine le second
-      niveau en substituant $y$ par 2. 
-
-      En fait, de manière informelle, on constate que pour définir une fonction
-      de deux variables, il faut définir une fonction d'une variable qui donnerait
-      comme résultat une autre fonction d'une variable. Cette transformation
-      fût étudiée par le mathématicien <b>Haskell Curry</b> et fût appelée
-      "curryfication" en son honneur.
     </p>
+
+    <h4 class="point">Une idée de l'usage du système</h4>
+
+    <p class="note">
+      Ce paragraphe est en grande partie issu de ma pensée. Il s'agit surtout d'un
+      texte qui me permettrait de garder une trace, à cet instant, de ma façon
+      de comprendre le $\lambda$-calcul, et des idées qui me viennent à l'esprit
+      concernant l'usage du système.
+    </p>
+
+    <p>
+      Au cours de mon apprentissage du $\lambda$-calcul, je découvre que dans les
+      sciences informatiques, le système formel sert de modèle théorique aux langages de
+      programmation fonctionnels. Plus précisément, il s'agirait de construire 
+      un modèle théorique d'un langage de programmation fonctionnel concret en se
+      servant du $\lambda$-calcul. Cette idée nous amène intuitivement à penser
+      qu'il est nécessaire que le $\lambda$-calcul ait la même <i>forme logique</i> 
+      que le langage qui nous serions amenés à étudier.
+    </p>
+
+    <p>
+      Par abus de langage, j'appelerai cette relation entre les formes logiques du système
+      formel et du langage concret : <b>isomorphisme</b>. 
+      Après la construction d'un tel isomorphisme, on peut alors étudier le langage
+      concret au travers de l'étude du lambda calcul, d'une certaine manière. L'enjeu
+      reste tout de même de savoir construire un tel isomorphisme.
+    </p>
+
+    <h4 class="point">Références</h4>
+
+    <ul>
+      <li>
+        Je me suis majoritairement inspiré du livre <u>An introduction to Lambda Calculi for Computer Scientists</u>
+        de Chris Hankin et du <u>Lecture Notes on the Lambda Calculus</u> de Peter Sellinger pour écrire cet article.
+      </li>
+    </ul>
 
     <!-- ARTICLE CONTENT -->
 

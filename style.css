@@ -58,7 +58,10 @@ img {
 	color: #444a;
 	font-family: monospace;
 	font-size: 11px;
-	padding: 7px;
+	padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 11px;
+  padding-right: 11px;
 }
 
 .title {
