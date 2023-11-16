@@ -148,31 +148,44 @@
       l'on résout un problème p-SAT. 
     </p>
 
-    <p>
+    <ul>
+    <li><p>
       Lorsque $p = 1$, pour déterminer $\sigma$, on associe à chaque variable (ou sa négation) une
       valeur booléenne qui la rend vraie. Le temps de résolution du problème (la complexité temporelle) avec cette méthode est de l'ordre du nombre
       de variables dans la formule.
-    </p>
+    </p></li>
 
-    <p>
+    <li><p>
       Lorsque $p = 2$, les choses se compliquent un peu lorsque l'on souhaite obtenir
       encore une fois une complexité temporelle en temps linéaire au nombre de variables,
       car cela implique l'utilisation de théories qui n'ont à priori pas de rapport avec le problème (la
       <a href="https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes">théorie des graphes</a>).
       Sans entrer dans les détails,
-      pour déterminer $\sigma$, <a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_2-SAT">on construit un graphe d'implication puis on le
-      manipule en s'intéressant à sa connexité</a>.
+      pour déterminer $\sigma$, on construit un graphe d'implication puis on le
+      manipule en s'intéressant à ses composantes fortement connexes. Plus précisément, on se ramène à la résolution d'un
+      problème de théorie des graphes pour résoudre le problème 2-SAT.
+      
+      <p class="note">
+        De manière formelle, on dit que le problème 2-SAT peut être
+        réduit calculatoirement au problème de recherche de composantes fortement connexes dans un graphe orienté.
+      </p>
+    </p></li>
+
+    <li><p>
+      Lorsque $p = 3$, on se ramène là aussi à un problème de théorie des graphes, mais
+      cette fois-ci, au lieu d'essayer de déterminer les composantes fortement connexes
+      d'un graphe d'implication et d'en déduire une valuation qui satasfait une formelle
+      donnée, on tente de colorier un graphe avec trois couleurs différentes en respectant
+      certaines contraintes. L'analogie entre la formule et le graphe se fait au travers
+      d'un outil qui modélise le <i>ou</i> logique par un graphe avec des couleurs, on
+      l'appelle gadget.
     </p>
 
-    <p>
-      Lorsque $p = 3$, la résolution du problème se rapproche de celle celle du
-      problème k-SAT (lorsque p est quelconque). La méthode est exposée dans la
-      partie suivante. Cependant, ce qui est intéressant concernant ce cas est
-      le fait que la résolution du problème k-SAT peut toujours se rapporter à
-      la résolution d'un problème 3-SAT. Je n'approfondie pas le sujet car je 
-      n'ai ni les compétences, ni les connaissances nécessaires pour en parler
-      précisément et correctement.
-    </p>
+    <p class="note">
+      De manière formelle, on dit que le problème 3-SAT peut être réduit calculatoirement
+      au problème 3-COLOR.
+    </p></li>
+    </ul>
 
     <h3 class="chapter">Algorithme de Quine-McCluskey</h3>
 
@@ -293,6 +306,8 @@
       <li><a href="https://fr.wikipedia.org/wiki/Forme_normale_conjonctive">Formes normales conjonctives</a></li>
       <li><a href="https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes">Théorie des graphes</a></li>
       <li><a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_3-SAT">Problème 3-SAT</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Composante_fortement_connexe">Composantes fortement connexes d'un graphe orienté</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Algorithme_de_Kosaraju">Algorithme de Kosaraju-Sharir</a></li>
     </ul>
 
     <ul>
