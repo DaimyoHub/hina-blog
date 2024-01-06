@@ -38,68 +38,68 @@
     <h1 class="title">Découverte du lambda-calcul</h1>
 
     <p>
-      Le lambda-calcul (aussi écrit $\lambda$-calcul) est un système formel
-      élaboré par le scientifique Alonzo Church dans les années 1930 dans le
-      cadre de ses travaux concernant les fondements des mathématiques.
+      Les lambda-calculi sont une famille de systèmes formels, basés sur un modèle - 
+      le lambda-calcul - élaboré par le mathématicien Alonzo Church dans les années
+      1930, dans le cadre de ses travaux concernant les fondements des mathématiques.
     </p>
 
-    <h4 class="point">Syntaxe et sémantique</h4>
+    <p>
+      Ici, on s'intéresse essentiellement à la version la plus simple de cette 
+      famille, c'est-à-dire celle qui en est à l'origine : le lambda-calcul (qui
+      peut être écrit $\lambda$-calcul).
+    </p>
 
     <p>
-      Le $\lambda$-calcul est un système formel, grossièrement il est alors définit
-      comme un langage permettant de calculer. Cela nous pousse à considérer deux
-      aspects qui se complètent : la <b>syntaxe</b> et la <b>sémantique</b> d'un tel système.
+      Dans cet article, je propose de découvrir les fondements du lambda-calcul sous
+      l'angle des systèmes formels, en m'intéressant particulièrement à la réécriture
+      comme manière de donner un sens aux phrases du langage.
+    </p>
 
-      <ul>
-        <li>
-          La <b>syntaxe</b> est l'ensemble des mots et des règles qui permettent
-          d'organiser ces mots dans le système. En $\lambda$-calcul, la syntaxe
-          est simple : toute phrase est constitutée de $\lambda$-termes et de variables,
-          que l'on définit par
+    <h4 class="point">Base syntaxique</h4>
 
-          \begin{align}
-            \label{eq:a}
-            \langle \lambda \text{-term} \rangle \quad ::= & \quad \langle \text{variable} \rangle \\
+    Le lambda-calcul est un système formel. Grossièrement, c'est donc un langage
+    qui permet de calculer. Pour un tel système, il est nécessaire de savoir distinguer
+    deux aspects qui se complètent, le premier étant la <b>syntaxe</b> : il s'agit
+    de <i>la façon d'organiser les mots et les phrases du langage</i>.
+
+    <p class="note">
+      Le terme "calculer" ne fait pas précisément
+      référence aux processus de calcul en arithmétique, par exemple, mais à un processus
+      de transformation d'une information en une autre grâce à des règles de calcul.
+    </p>
+
+    En $\lambda$-calcul, la syntaxe est simple. Il existe trois sortes d'objets syntaxiques :
+    <ul>
+      <li>Les <b>variables</b>, qui désignent de simples valeurs nommées</li>
+      <li>
+        Les <b>abstractions</b>, qui permettent de définir des fonctions : des objets
+        qui associent un calcul à un paramètre.
+      </li>
+      <li>
+        Les <b>applications</b>, qui permettent d'exploiter les calculs donnés par les
+        abstractions.
+      </li>
+    </ul>
+
+    Ces trois objets peuvent être appelés <b>$\lambda$-termes</b>. À eux seuls,
+    ils permettent d'écrire n'importe quelle phrase du lambda-calcul. On peut aussi
+    les définir en précisant la façon de les organiser grâce à une grammaire :
+
+    \begin{align}
+      \label{eq:a}
+      \langle \lambda \text{-term} \rangle \quad ::= & \quad \langle \text{variable} \rangle \\
                                                         |  & \quad (\lambda \langle \text{variable} \rangle . \langle \lambda \text{-term} \rangle) \\
                                                         |  & \quad (\langle \lambda \text{-term} \rangle \langle \lambda \text{-term} \rangle) \\
             
-            \langle \text{variable} \rangle \quad ::= & \quad x \quad | \quad y \quad | \quad z...
-          \end{align}
-        </li>
+      \langle \text{variable} \rangle \quad ::= & \quad x \quad | \quad y \quad | \quad z...
+    \end{align}
 
-        <li>
-          La <b>sémantique</b> calculatoire du $\lambda$-calcul est construite à partir de
-          règles de transformation syntaxique très simples. En appliquant ces 
-          règles à une phrase, on en déduit une nouvelle phrase, plus petite (il faut
-          considérer la notion d'ordre ou de quasi-ordre dans le langage étudié) qui
-          lui est équivalente sémantiquement. En appliquant ces règles <i>un certain
-          nombre de fois</i>, on se trouve face à une phrase qui ne peut être
-          encore réduite et qui est équivalente à la phrase initiale. 
-
-          Les règles en question sont l'<b>$\alpha$-réduction</b> et la <b>$\beta$-réduction</b>.
-
-          <p class="note">
-            Je me demande souvent comment est-il possible de définir le sens d'un
-            langage de manière formelle. C'est le sujet auquel je m'intéresse particulièrement
-            d'un point de vue philosophique et mathématique.
-          </p>
-        </li>
-      </ul>
-
-      De manière informelle, les règles de réduction données permettent de simuler
-      l'exécution d'une suite de calculs écrits en $\lambda$-calcul. Cette interprétation
-      lie clairement le système formel aux langages de programmation fonctionnels.
-      On pourrait imaginer que pour définir la sémantique d'un tel langage, il 
-      serait alors nécessaire de créer des règles de réduction sur sa syntaxe.
-
-      <p class="note">
-        En fait, il s'agirait de l'idée centrale d'un tel besoin. Il faut aussi
-        prendre en considération le fait qu'au bout d'un nombre fini de réductions,
-        la phrase transformée soit atomique. On pourrait enfin inventer un <b>système
-        de réécriture</b> qui termine pour toute entrée possible, pour pouvoir définir
-        la sémantique d'un langage fonctionnel.
-      </p>
-    </p>
+    Comme explicité ci-dessus, un $\lambda$-terme peut avoir l'une des trois
+    formes données, et aucune autre. Cette définition structurelle permet
+    de raisonner sur les phrases du lambda-calcul de manière simple, en
+    distinguant les différentes formes possibles des termes de la phrase.
+    Plus précisément, il n'est pas rare de raisonner par <b>induction structurelle</b>
+    sur chaque terme d'une phrase.
 
     <h4 class="point">Abstraction et application</h4>
 
@@ -125,6 +125,13 @@
           \begin{equation}
             ((\lambda x.(\lambda y.x + y)) \; 2) \; 1
           \end{equation}
+
+          <p class="note">
+            Par "appliquer une fonction à un argument donné", on sous-entend qu'il
+            existe une méthode qui permet "d'appliquer". Ceci n'est pas évident, 
+            et il se trouve que cette méthode est décrite par la sémantique introduite dans
+            le paragraphe précédent et expliquée dans le paragraphe suivant.
+          </p>
         </li>
       </ul>
 
@@ -136,16 +143,55 @@
       et la sémantique.
     </p>
 
+    <h4 class="point">Base sémantique</h4>
+
+    Le second aspect du système formel qu'il est important d'étudier est la
+    <b>sémantique</b>, qui complète la syntaxe en permettant de <i>donner une signification à chaque phrase
+    du langage</i>. Autrement-dit, là ou la syntaxe sert de support de l'information,
+    la sémantique permet de manipuler l'information.
+
+    <p class="note">
+      Philosophiquement, l'objectif est d'être capable d'exprimer une idée,
+      un concept (l'abstrait) grâce à la richesse syntaxique d'un langage, et de pouvoir rendre
+      le/la rendre exploitable par une machine, qui ne manipule que des briques
+      élémentaires (le concret).
+    </p>
+
+    L'une des sémantiques du $\lambda$-calcul est construite à partir de <b>règles
+    de transformation syntaxique</b> très simples. En appliquant ces règles à une phrase,
+    on en déduit une nouvelle phrase, <b>plus petite</b>, ou non, mais qui conserve l'information
+    initialement stockée (il faut s'intéresser à la
+    notion d'ordre dans le langage étudié pour pouvoir considérer
+    qu'une phrase est plus petite qu'une autre).
+    En appliquant ces règles <i>un certain nombre de fois</i>, on se trouve face
+    à une phrase qui ne peut plus être réduite et qui est équivalente à la phrase
+    initiale.
+
+    <br><br>
+
+    Les règles en question sont l'<b>$\alpha$-conversion</b> et la <b>$\beta$-réduction</b>.
+
+    <p class="note">
+      On remarquera qu'en réalité, ces règles ne permettent pas toujours de réduire la taille des
+      phrases transformées.
+    </p>
+
+    De manière informelle, les règles de réduction données permettent de simuler
+    l'exécution d'une suite de calculs écrits en $\lambda$-calcul. Cette interprétation
+    lie clairement le système formel aux langages de programmation fonctionnels.
+    On pourrait imaginer que pour définir la sémantique d'un tel langage, il 
+    serait alors nécessaire de créer des règles de réduction sur sa syntaxe.
+
     <h4 class="point">Sémantique et réductions</h4>
 
     <p>
       Comme expliqué précédemment, les techniques de réductions permettent de construire
-      une sémantique calculatoire pour le $\lambda$-calcul. La $\alpha$-réduction
+      une sémantique calculatoire pour le $\lambda$-calcul. La $\alpha$-conversion
       et l'$\beta$-réduction sont respectivement définies de la manière suivante :
 
       <ul>
         <li>
-          L'$\alpha$-réduction consiste simplement à renommer les variables nommées
+          L'$\alpha$-conversion consiste simplement à renommer les variables nommées
           dans les abstractions. Par exemple, la phrase
 
           \begin{align}
@@ -157,7 +203,20 @@
           \begin{align}
             (\lambda x. xx) (\lambda y. y)
           \end{align}
+
+          Cette règle permet de démontrer des résultats sur le lambda-calcul sans
+          devoir se soucier des conflits de nommage des variables utilisées. L'$\alpha$-conversion
+          donne une solution efficace au problème de <b>capture de variables</b>.
+
+          <br><br>
+          
+          En particulier, la démonstration de résultats sur des phrases du système
+          se fait généralement à $\alpha$-conversion près : au lieu de considérer une
+          phrase en particulier, on considère toutes les phrase qui lui sont égales
+          après une certaine $\alpha$-conversion.
         </li>
+
+        <br>
 
         <li>
           La $\beta$-réduction permet grossièrement d'exécuter une application,
@@ -171,7 +230,7 @@
           après une $\beta$-réduction devient
 
           \begin{align}
-            (\lambda y. 2 + y) 
+            (\lambda y. 2 + y) \; 1
           \end{align}
 
           En fait, à un niveau d'imbrication donné d'une phrase, on transforme l'écriture
@@ -186,17 +245,82 @@
       </ul>
     </p>
 
+    <!--
+    <h4 class="point">Exemple : codage de Church</h4>
+
+    On se propose de construire l'ensemble des entiers naturels avec le lambda-calcul.
+    Dès lors, la question que l'on se pose est : comment peut on coder un entier naturel
+    quelconque, à partir de variables et de $\lambda$-termes.
+
+    <br><br>
+
+    En mathématiques, il existe plusieurs manières de construire l'ensemble $\mathbb{N}$.
+    On peut par exemple considérer que l'ensemble qui contient l'ensemble vide correspond
+    à 0. L'ensemble qui contient l'ensemble représentant 0 correspond à 1. L'ensemble
+    qui contient les ensembles représentant 0 et 1 correspond à 2. Et ainsi de suite :
+
+    \begin{align}
+      & e_0 = \{ \emptyset \} \\
+      & e_1 = \{ \{ \emptyset \} \} \\
+      & e_2 = \{ \{ \{ \emptyset \} \}, \{ \emptyset \} \} \\
+      & ... \\
+      & e_n = \{ C_0, C_1, ..., C_{n-1} \}
+    \end{align}
+
+    Cette construction, bien que très rudimentaire, reste lourde structurellement
+    parlant. L'entier 123 est représenté par un ensemble contenant 123 éléments,
+    qui contiennent chacun entre 0 et 122 éléments.
+
+    <br><br>
+
+    Heureusement, il existe une manière plus légère (et que je trouve plus élégante
+    ) de construire l'ensemble des entiers naturels. On définit inductivement l'ensemble
+    $\mathbb{N}$ par le plus petit ensemble contenant l'élément $0$ et tel que si
+    $n$ est dans $\mathbb{N}$, alors $succ(n)$ est aussi dans $\mathbb{N}$. On
+    obtient la construction suivante :
+
+    \begin{align}
+      & s_0 = 0 \\
+      & s_1 = \textup{succ}(0) \\
+      & s_2 = \textup{succ}(\textup{succ}(0)) \\
+      & ... \\
+      & s_n = \textup{succ}(s_{n-1})
+    \end{align}
+
+    Il suffit désormais d'appliquer cette construction dans le lambda-calcul. On commence
+    par définir l'élément $c_0$ qui représente 0 par l'abstraction $\lambda f . \lambda x . x$,
+    puis on procède par induction :
+
+    \begin{align}
+      & c_1 = \lambda f . \lambda x . (f \; x) \\
+      & c_2 = \lambda f . \lambda x . (f \; (f \; x)) \\
+      & c_3 = \lambda f . \lambda x . (f \; (f \; (f \; x))) \\
+      & ... \\
+      & c_n = \lambda f . \lambda x . (f^{\circ n} \; x)
+    \end{align}
+
+    Cette construction étant faite, il convient alors de définir les opérations 
+    arithmétiques élémentaires à partir de cette structure récurrente. Par exemple,
+    on peut définir l'addition de deux nombres par : 
+    
+    \begin{align}
+      \textup{plus} := \lambda m . \lambda n . \lambda f . \lambda x . (f^{\circ m} \; (f^{\circ n} \; x))
+    \end{align}
+
+    et alors 
+
+    \begin{align}
+      \textup{plus} \; 2 \; 3 & \; := \; \lambda f . \lambda x . (f^{\circ 2} \; (f^{\circ 3} \; x)) \\
+                        & \; := \; \lambda f . \lambda x . (f^{\circ 2} \; (f \; (f \; (f \; x)))) \\
+                        & \; := \; \lambda f . \lambda x . (f \; (f \; (f \; (f \; (f \; x))))) \\
+                        & \; := \; c_5
+    \end{align}
+    -->
+
     <h4 class="point">Une idée de l'usage du système</h4>
 
-    <p class="note">
-      Ce paragraphe est en grande partie issu de ma pensée. Il s'agit surtout d'un
-      texte qui me permettrait de garder une trace, à cet instant, de ma façon
-      de comprendre le $\lambda$-calcul, et des idées qui me viennent à l'esprit
-      concernant l'usage du système.
-    </p>
-
     <p>
-      Au cours de mon apprentissage du $\lambda$-calcul, je découvre que dans les
+      Dans les
       sciences informatiques, le système formel sert de modèle théorique aux langages de
       programmation fonctionnels. Plus précisément, il s'agirait de construire 
       un modèle théorique d'un langage de programmation fonctionnel concret en se
@@ -209,7 +333,7 @@
       Par abus de langage, j'appelerai cette relation entre les formes logiques du système
       formel et du langage concret : <b>isomorphisme</b>. 
       Après la construction d'un tel isomorphisme, on peut alors étudier le langage
-      concret au travers de l'étude du lambda calcul, d'une certaine manière. L'enjeu
+      concret au travers de l'étude du lambda-calcul (en pratique amélioré), d'une certaine manière. L'enjeu
       reste tout de même de savoir construire un tel isomorphisme.
     </p>
 
