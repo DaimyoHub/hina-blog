@@ -30,6 +30,12 @@ code {
   color: #3a201e;
 }
 
+.legende {
+  font-size: x-small;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  color: #3a201e;
+}
+
 table {
   border-color: #5a403e;
   border-collapse: collapse;
