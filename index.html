@@ -1,7 +1,20 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <script type="text/javascript" src="LaTeXMathML.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      });
+    </script>
 
     <title>Hina</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,53 +22,195 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
+
+  <header class="banner">
+  <img src="./pics/ceiling_santa_caterina_napoli.jpg" alt="Toit de la chapelle de Santa Caterina, Naples."/>
+  <div class="banner-text">
+    <h1>Alexis Pocquet</h1>
+  </div>
+  </header>
+
+
   <body>
-    <img src="./pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
-    
-    <h1 style="text-align: center">Hina</h1>
-    <p style="text-align: center">Notes d'informatique théorique.</p>
-
-    <br/>
-
-    <a href="./index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-    <a href="./about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-    <a href="./contact.html">Me contacter</a>
+    <nav class="nav-buttons" style="margin-bottom:20px;">
+      <a href="./index.html" class="button">Main</a>
+      <a href="./about.html" class="button">About</a>
+      <a href="./contact.html" class="button">Contacts</a>
+    </nav>
 
     <hr/>
 
-    <!--
-    <h3 class="point">Algorithmie et projets</h3>
-    <ul>
-      <li><a href="./posts/proj/lambda_calcul_type.html">Implémentation d'un lambda-calcul non-typé</a></li>
-      <li><a href="./posts/proj/solveur_ksat.html">Résolution algorithmique du problème SAT</a></li>
-      <li><a href="./posts/vm_proto.html">Prototype de machine virtuelle</a></li>
-    </ul>
-    -->
+    <br>
 
-    <!--
-    <ul>
-      <li><a href="./posts/lit_philo/wittgenstein.html">Notes sur le <i>Tractatus Logico-Philosophicus</i> de Wittgenstein : l'isomorphisme pensée/langage</a></li>
-      <li><a href="./posts/lit_philo/hofstadter.html">Notes sur <i>Gödel, Escher, Bach</i> de Douglas Hofstadter</a></li>
-      <li><a href="./posts/lit_philo/lang_calc_compl.html">Notes sur <i>Langages formels, Calculabilité et complexité</i> de Olivier Carton</a></li>
-    </ul>
-    -->
+    I am pursuing the <i>Master Parisien de Recherche en Informatique (MPRI)</i> at the <i>Institut
+    Polytechnique de Paris</i>, with a primary interest in theoretical computer science, and a strong
+    focus on the Curry–Howard–Lambek correspondence as a unifying framework between logic, type
+    theory, and categories.
 
-    <h3 class="point">Interprétation Abstraite</h3>
+    <br><br>
+
+<h3 class="point">Curriculum</h3>
+<div class="cv-section">
+    <div class="cv-item">
+        <div class="cv-date">2025 — now</div>
+        <div class="cv-content">
+            <span class="cv-title">M1 Foundations of Computer Science</span>
+            <span class="cv-details">Master Parisien de recherche en Informatique (MPRI)</span>
+            <span class="cv-institution">Institut Polytechnique de Paris, École Polytechnique, Palaiseau</span>
+        </div>
+    </div>
+
+    <div class="cv-item">
+        <div class="cv-date">2024 — 2025</div>
+        <div class="cv-content">
+            <span class="cv-title">BSc in Computer Science and Mathematics</span>
+            <span class="cv-details">Research Track / Magistère d'Informatique - Cum Laude</span>
+            <span class="cv-institution">Université Paris-Saclay, Orsay</span>
+        </div>
+    </div>
+
+    <div class="cv-item">
+        <div class="cv-date">2022 — 2024</div>
+        <div class="cv-content">
+            <span class="cv-title">Classe Préparatoire aux Grandes Écoles (CPGE)</span>
+            <span class="cv-details">Intensive program in Mathematics, Physics, and CS (MPI)</span>
+            <span class="cv-institution">Lycée Henri Wallon, Valenciennes</span>
+        </div>
+    </div>
+
+    <div class="cv-item">
+        <div class="cv-date">2022</div>
+        <div class="cv-content">
+            <span class="cv-title">Baccalauréat Général</span>
+            <span class="cv-details">Spec. Mathematics and Computer Science — Summa Cum Laude</span>
+            <span class="cv-institution">Lycée Pasteur, Hénin-Beaumont</span>
+        </div>
+    </div>
+</div>   
+
+    <h3 class="point">Research Experience</h3>
+
     <ul>
-      <li><a href="./posts/absint_intro.html">Présentation</a></li>
+      <li>
+        <p style="font-size: 16px;">
+          <b style="font-size: 20px;"><a href="posts/bachelor_research_intership.pdf">Bachelor Research Internship</a></b><br>
+          CNRS, ENS Paris, Antique team - Jérôme Féret and Jérôme Boillot - may 2025 to july 2025
+        </p>
+
+        <p>
+          During my first internship with the Antique team at ENS Paris, under the supervision of
+          Jérôme Féret and Jérôme Boillot, I discovered Abstract Interpretation and its application
+          to operating system formal verification.
+          <span class="toggle" style="cursor:pointer; font-weight: bold;">[...]</span>
+
+          <span class="more" style="display:none;">
+            In this work, I proposed a method to verify that operating system properties are preserved during
+            the execution of application tasks on the IA-32 architecture by introducing an intermediate language
+            with a formal semantics to model assembly instructions. From this, I derived a semantics
+            characterizing all states reachable during task execution and constructed a sound and sufficiently
+            precise over-approximation of reachability analysis based on constraint-manipulating functions over
+            memory states. This approach makes it possible to compute memory states corresponding to writes in
+            critical regions, and I defined a set of states that I proved to be stable under this abstract
+            analysis, provided that application executions do not compromise the integrity of the host system’s
+            essential data structures.
+          </span>
+        </p>
+      </li>
+      <li>
+        <p style="font-size: 16px;">
+          <b style="font-size: 20px;"><a href="posts/bachelor_research_intership.pdf">Bachelor Research Project</a></b><br>
+          CNRS, ENS Paris, Antique team - Jérôme Féret - january 2025 to may 2025
+        </p>
+
+        <p>
+          During my sixth semester of bachelor, I discovered Abstract Interpretation and its applications
+          to system software engineering at the Antique team of ENS Paris, under the supervision of Jérôme
+          Féret, with a particular focus on several instantiations of the abstract notion of reduced product.
+          <span class="toggle" style="cursor:pointer; font-weight: bold;">[...]</span>
+
+          <span class="more" style="display:none;">
+            Abstract Interpretation, introduced by Patrick and Radhia Cousot in the late 1970s, formalizes
+            program analysis as computations over over-approximations of reachable program states in order
+            to ensure termination while retaining sufficient precision to infer meaningful invariants.  
+
+            <br><br>
+
+            Current research in Abstract Interpretation focuses on combining abstract domains to infer
+            invariants of different natures within a single abstract interpreter, a construction known as a
+            reduced product. My research project studied several instantiations of reduced products (such as
+            those using input/output channels or ghost quantities) and analyzed how they address termination
+            and refinement of abstract computations.
+          </span>
+        </p>
+
+      </li>
     </ul>
+
+    <h3 class="point">Programming</h3>
+
+    <ul>
+      <li>
+        <b style="font-size: 20px;"><a href="https://github.com/DaimyoHub/KawaLang">KawaLang</a></b> (winter 2025)
+        <br>
+        <p>
+          Kawa is an object-oriented toy programming language developed for a third-year bachelor project as
+          an introduction to applied programming language theory. The implementation, in OCaml, includes a
+          basic interpreter and a static type checker designed for exhaustiveness and precise type error
+          reporting.
+          <span class="toggle" style="cursor:pointer; font-weight: bold;">[...]</span>
+
+          <span class="more" style="display:none;">
+            The interpreter is quite naive and
+            the pipeline for code execution is divided in three sequential parts : code parsing and structures loading, static type type-checking
+            and code evaluation/execution. These two last phases strongly depend on symbol/name resolution, which is permanently being used during the interpretating
+            process.
+
+            <br><br>
+
+            This language should not be used for real projects since its implementation is experiemental and sometimes buggy. 
+            Here is a <a href="https://github.com/DaimyoHub/KawaLang/tree/master/test">set of examples</a> that I used to test my implementation.
+          </span>
+        </p>
+      </li>
+    </ul>
+
+    <p>
+      I also enjoy some side projects, even if they are incomplete or not fully usable:
+      <b><a href="https://github.com/DaimyoHub/c-deepseek-api">C DeepSeek API</a></b> (summer 2025) is an
+      easy-to-use REST API in C for interacting with the DeepSeek API. <b>
+      <a href="https://github.com/DaimyoHub/processor-proto">Processor proto</a></b> (spring 2022) is a C++
+      implementation of an abstract machine based on the Von Neumann architecture that interprets a simple
+      assembly language. It is likely unstable, as I started it some time ago and haven’t updated it much since.
+    </p>
 
   </body>
-
-  <br>
   <footer>
+    <br>
     <hr>
-    <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
-      <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
-    </a>
 
-    <br/>
+    <nav class="nav-buttons" style="margin-bottom:20px;">
+      <a href="../index.html" class="button">Main</a>
+      <a href="../about.html" class="button">About</a>
+      <a href="../contact.html" class="button">Contacts</a>
+    </nav>
 
-    Copyright (c) 2024 Daimyo. Ce blog est sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    Copyright (c) 2025 Daimyo. Ce blog est sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
   </footer>
+
+<script>
+  document.querySelectorAll(".toggle").forEach(toggle => {
+    toggle.addEventListener("click", function() {
+      const more = this.nextElementSibling; // the <span class="more">
+      
+      if (more.style.display === "none" || more.style.display === "") {
+        more.style.display = "inline";
+        this.textContent = "[...]";
+      } else {
+        more.style.display = "none";
+        this.textContent = "[...]";
+      }
+    });
+  });
+</script>
+
 </html>

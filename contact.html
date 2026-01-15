@@ -1,45 +1,79 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>Me contacter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      });
+    </script>
+
+    <title>Hina</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
+
+  <header class="banner">
+  <img src="./pics/ceiling_santa_caterina_napoli.jpg" alt="Toit de la chapelle de Santa Caterina, Naples."/>
+  <a href="//commons.wikimedia.org/wiki/User:Commonists" title="User:Commonists">Commonists</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=113145574">Link</a>
+  <div class="banner-text">
+    <h1>Alexis Pocquet</h1>
+  </div>
+  </header>
+
+
   <body>
-    <img src="./pics/jup_ant_wat.png" alt="Jupyter et Antiope, Watteau."/>
-    
-    <h1 style="text-align: center">Hina</h1>
-    <p style="text-align: center">Notes d'informatique théorique.</p>
-
-    <br/>
-
-    <a href="./index.html">Page principale</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-    <a href="./about.html">A propos du blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-    <a href="./contact.html">Me contacter</a>
+    <nav class="nav-buttons" style="margin-bottom:20px;">
+      <a href="./index.html" class="button">Main</a>
+      <a href="./about.html" class="button">About</a>
+      <a href="./contact.html" class="button">Contacts</a>
+    </nav>
 
     <hr/>
 
-    <h3 class="point">Me contacter</h3>
+    <br>
 
-    Vous pouvez me contacter via:
-    <ul>
-      <li>Mon compte Discord: Daimyo#9230,</li>
-      <li>Mon <a href="https://github.com/DaimyoHub">compte GitHub</a>,</li>
-      <li>Mon <a href="mailto:daimyohubcontact@gmail.com">adresse mail</a>.</li>
-    </ul>
+    Vous pouvez me contacter à l'adresse : <i>alexis <b>dot</b> pocquet <b>at</b> polytechnique <b>dot</b> edu</i>. Et voilà un <a href="github.com/DaimyoHub">lien</a>
+    vers mon GitHub.
+
   </body>
-
-  <br>
   <footer>
+    <br>
     <hr>
-    <a rel="license" href="http://creativecommons.org/licences/by-nd/4.0/">
-      <img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nd/4.0/80x15.png"/>
-    </a>
 
-    <br/>
+    <nav class="nav-buttons" style="margin-bottom:20px;">
+      <a href="../index.html" class="button">Main</a>
+      <a href="../about.html" class="button">About</a>
+      <a href="../contact.html" class="button">Contacts</a>
+    </nav>
 
-    Copyright (c) 2023 Daimyo. Ce blog est sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
+    Copyright (c) 2025 Daimyo. Ce blog est sous licence <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0 International License</a>.
   </footer>
+
+<script>
+  document.querySelectorAll(".toggle").forEach(toggle => {
+    toggle.addEventListener("click", function() {
+      const more = this.nextElementSibling; // the <span class="more">
+      
+      if (more.style.display === "none" || more.style.display === "") {
+        more.style.display = "inline";
+        this.textContent = "[...]";
+      } else {
+        more.style.display = "none";
+        this.textContent = "[...]";
+      }
+    });
+  });
+</script>
+
 </html>
